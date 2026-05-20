@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import com.example.neveranother.viewModel.NAViewmodel
 
-
 @Composable
-fun Basket(navController: NavHostController, vm: NAViewmodel){
+
+fun DesignAndProduct(navController: NavHostController, vm: NAViewmodel){
 
 }
