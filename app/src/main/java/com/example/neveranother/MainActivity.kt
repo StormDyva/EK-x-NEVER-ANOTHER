@@ -34,11 +34,11 @@ import com.example.neveranother.screen.Home
 import com.example.neveranother.screen.LoadingFrame
 import com.example.neveranother.screen.Measures1
 import com.example.neveranother.screen.Measures2
-import com.example.neveranother.screen.OrderConfirmed
 import com.example.neveranother.screen.OrderInformation
 import com.example.neveranother.screen.OurMission
 import com.example.neveranother.screen.Payment
-import com.example.neveranother.screen.Results
+import com.example.neveranother.screen.Purchased
+import com.example.neveranother.screen.ResultsOfMeasure
 import com.example.neveranother.ui.theme.NEVERANOTHERTheme
 import com.example.neveranother.viewModel.NAViewmodel
 import io.github.jan.supabase.postgrest.Postgrest
@@ -91,8 +91,8 @@ class MainActivity : ComponentActivity() {
                             Measures2(navController, vm)
                         }
 
-                        composable("OrderConfirmed-screen") {
-                            OrderConfirmed(navController, vm)
+                        composable("ResultsOfMeasure-screen") {
+                            ResultsOfMeasure(navController, vm)
                         }
 
                         composable("OrderInformation-screen") {
@@ -107,8 +107,11 @@ class MainActivity : ComponentActivity() {
                             Payment(navController, vm)
                         }
 
-                        composable("Results-screen") {
-                            Results(navController, vm)
+                        composable("Purchased-screen") {
+                            Purchased(navController, vm)
+                        }
+                        composable  ("Basket-screen"){
+                            Basket(navController, vm)
                         }
                         composable ("Supabase-screen") {
                             SupabaseScreen(navController, vm)

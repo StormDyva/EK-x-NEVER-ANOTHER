@@ -7,12 +7,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import com.example.neveranother.components.AddToBasketBTN
 import com.example.neveranother.viewModel.NAViewmodel
 
 @Composable
 
-fun Results(navController: NavHostController, vm: NAViewmodel){
+fun ResultsOfMeasure(navController: NavHostController, vm: NAViewmodel){
     Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally){
-        Text("Results")
+        Text("ResultsOfMeasure")
     }
+    AddToBasketBTN(navController, vm)
 }
