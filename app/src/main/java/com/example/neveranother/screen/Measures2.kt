@@ -6,6 +6,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavHostController
 import com.example.neveranother.components.BackBTN
 import com.example.neveranother.components.ContinueBTN1
@@ -20,6 +21,6 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel){
         Text("Measures2")
     }
     ContinueBTN2(navController, vm)
-    BackBTN{navController.popBackStack()}
+    BackBTN({ navController.popBackStack() }, color = Color.Black)
     Header()
 }

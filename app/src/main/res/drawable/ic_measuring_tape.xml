@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Målebånd krop -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#1A1A1A"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M2,8 L2,16 C2,17 3,18 4,18 L20,18 C21,18 22,17 22,16 L22,8 C22,7 21,6 20,6 L4,6 C3,6 2,7 2,8 Z" />
+
+    <!-- Streger inde i målebåndet -->
+    <path android:strokeColor="#1A1A1A" android:strokeWidth="1.5" android:strokeLineCap="round" android:fillColor="@android:color/transparent" android:pathData="M5,6 L5,10" />
+    <path android:strokeColor="#1A1A1A" android:strokeWidth="1.5" android:strokeLineCap="round" android:fillColor="@android:color/transparent" android:pathData="M8,6 L8,9" />
+    <path android:strokeColor="#1A1A1A" android:strokeWidth="1.5" android:strokeLineCap="round" android:fillColor="@android:color/transparent" android:pathData="M11,6 L11,10" />
+    <path android:strokeColor="#1A1A1A" android:strokeWidth="1.5" android:strokeLineCap="round" android:fillColor="@android:color/transparent" android:pathData="M14,6 L14,9" />
+    <path android:strokeColor="#1A1A1A" android:strokeWidth="1.5" android:strokeLineCap="round" android:fillColor="@android:color/transparent" android:pathData="M17,6 L17,10" />
+    <path android:strokeColor="#1A1A1A" android:strokeWidth="1.5" android:strokeLineCap="round" android:fillColor="@android:color/transparent" android:pathData="M20,6 L20,9" />
+
+</vector>
