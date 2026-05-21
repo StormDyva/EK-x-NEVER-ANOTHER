@@ -28,6 +28,12 @@ import com.example.neveranother.viewModel.NAViewmodel
 @Composable
 fun Measures1(navController: NavHostController, vm: NAViewmodel) {
 
+fun Measures1(navController: NavHostController, vm: NAViewmodel){
+    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally){
+        Text("Measures1")
+    }
+    ContinueBTN1(navController, vm)
+    BackBTN({ navController.popBackStack() }, color = Color.Black)
     Header()
 
     BackBTN {

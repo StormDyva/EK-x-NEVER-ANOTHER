@@ -13,15 +13,18 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.ui.graphics.Color
+
 @Composable
-fun BackBTN(onBackButtonClick: () -> Unit) {
+fun BackBTN(onBackButtonClick: () -> Unit, color: Color = Color.Black) {
     IconButton(
         onClick = onBackButtonClick,
         modifier = Modifier.padding( top = 90.dp)
     ) {
         Icon(
             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-            contentDescription = "Tilbage"
+            contentDescription = "Tilbage",
+            tint = color
         )
     }
 }
