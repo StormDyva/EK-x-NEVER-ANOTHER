@@ -45,7 +45,10 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
             .padding(horizontal = 16.dp)
     ) {
         Header()
-        BackBTN { navController.popBackStack() }
+        BackBTN(
+            { navController.popBackStack() },
+            color = Color.Black
+        )
 
         LazyColumn(
             modifier = Modifier.weight(1f)

@@ -20,61 +20,94 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.neveranother.R
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 @Composable
 fun Home(navController: NavHostController, vm: NAViewmodel) {
-    Box(modifier = Modifier.fillMaxSize()) {
+    val verticalScroll = rememberScrollState()
+    Column (
+        modifier = Modifier.verticalScroll(verticalScroll)
+    ){
+        Box(modifier = Modifier
+            .fillMaxSize()) {
 
-        // Baggrundsbillede
-        Image(
-            painter = painterResource(id = R.drawable.forsidebillede),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
-        )
-
-        // Indhold ovenpå billedet
-        Header()
-
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(start = 24.dp, bottom = 32.dp, top = 100.dp),
-            horizontalAlignment = Alignment.Start
-        ) {
-            Text(
-                text = "Din nye",
-                fontFamily = FontFamily(Font(R.font.nohemi_bold)),
-                color = (Color(0xFFF8F5F2)),
-                fontSize = 60.sp
+            // Baggrundsbillede
+            Image(
+                painter = painterResource(id = R.drawable.forsidebillede),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
             )
-            Text(
-                text = "skræddersyet hverdags BH",
-                fontFamily = FontFamily(Font(R.font.nohemi_regular)),
-                color = (Color(0xFFF8F5F2)),
-                fontSize = 50.sp,
-                lineHeight = 55.sp
-            )
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 70.dp)
+
+            ) {
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(start = 24.dp, bottom = 32.dp, top = 100.dp),
+                    horizontalAlignment = Alignment.Start
+                ) {
+                    Text(
+                        text = "Din nye",
+                        fontFamily = FontFamily(Font(R.font.nohemi_bold)),
+                        color = (Color(0xFFF8F5F2)),
+                        fontSize = 60.sp
+                    )
+                    Text(
+                        text = "skræddersyet hverdags BH",
+                        fontFamily = FontFamily(Font(R.font.nohemi_regular)),
+                        color = (Color(0xFFF8F5F2)),
+                        fontSize = 50.sp,
+                        lineHeight = 55.sp
+                    )
+                }
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(bottom = 70.dp, end = 10.dp),
+                    verticalArrangement = Arrangement.Bottom,
+                    horizontalAlignment = Alignment.End
+                ) {
+                    Text(
+                        text = "799 kr",
+                        fontFamily = FontFamily(Font(R.font.nohemi_regular)),
+                        fontSize = 25.sp
+
+                    )
+
+                }
+                CreateBraBTN(navController, vm)
+            }
         }
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color(0xFFF8F5F2))
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.whitebra),
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .fillMaxHeight()
+                    )
 
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(bottom = 70.dp, end = 10.dp),
-            verticalArrangement = Arrangement.Bottom,
-            horizontalAlignment = Alignment.End
-        ) {
-            Text(
-                text = "799 kr",
-                fontFamily = FontFamily(Font(R.font.nohemi_regular)),
-                fontSize = 25.sp
-
-            )
-        }
-
-        CreateBraBTN(navController, vm)
+                    Spacer(modifier = Modifier.height(32.dp))
+                }
     }
+    Header()
 }
