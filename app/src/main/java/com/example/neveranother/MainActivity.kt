@@ -12,6 +12,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModel
@@ -19,6 +22,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.neveranother.model.Customer
+import com.example.neveranother.model.SupabaseDatabase
+import com.example.neveranother.model.SupabaseScreen
+import com.example.neveranother.model.supabase
 import com.example.neveranother.screen.Basket
 import com.example.neveranother.screen.BookFitting
 import com.example.neveranother.screen.DesignAndProduct
@@ -34,6 +41,8 @@ import com.example.neveranother.screen.Payment
 import com.example.neveranother.screen.Results
 import com.example.neveranother.ui.theme.NEVERANOTHERTheme
 import com.example.neveranother.viewModel.NAViewmodel
+import io.github.jan.supabase.postgrest.Postgrest
+import io.github.jan.supabase.postgrest.from
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -100,6 +109,9 @@ class MainActivity : ComponentActivity() {
 
                         composable("Results-screen") {
                             Results(navController, vm)
+                        }
+                        composable ("Supabase-screen") {
+                            SupabaseScreen(navController, vm)
                         }
                     }
                 }
