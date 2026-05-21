@@ -11,8 +11,8 @@ import com.example.neveranother.viewModel.NAViewmodel
 
 @Composable
 
-fun OrderConfirmed(navController: NavHostController, vm: NAViewmodel){
+fun Purchased(navController: NavHostController, vm: NAViewmodel){
     Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally){
-        Text("OrderConfirmed")
+        Text("Results")
     }
 }
