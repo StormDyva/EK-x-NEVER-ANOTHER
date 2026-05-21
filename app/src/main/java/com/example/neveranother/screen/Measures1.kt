@@ -26,8 +26,6 @@ import com.example.neveranother.components.Header
 import com.example.neveranother.viewModel.NAViewmodel
 
 @Composable
-fun Measures1(navController: NavHostController, vm: NAViewmodel) {
-
 fun Measures1(navController: NavHostController, vm: NAViewmodel){
     Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally){
         Text("Measures1")
@@ -35,10 +33,6 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel){
     ContinueBTN1(navController, vm)
     BackBTN({ navController.popBackStack() }, color = Color.Black)
     Header()
-
-    BackBTN {
-        navController.popBackStack()
-    }
 
     Column(
         modifier = Modifier

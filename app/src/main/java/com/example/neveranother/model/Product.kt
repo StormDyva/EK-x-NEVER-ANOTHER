@@ -1,10 +1,13 @@
 package com.example.neveranother.model
 
-abstract class Product (
-    val upperCircumference: Float,
-    val lowerCircumference: Float,
-    val breastSpan: Float,
-    val breastHeight: Float
-){
-    abstract val color: String
-}
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class Product(
+    val upperCircumference: Int,
+    val lowerCircumference: Int,
+    val breastSpan: Int,
+    val breastHeight: Int,
+    val color: String,
+    val quantity: Int
+)

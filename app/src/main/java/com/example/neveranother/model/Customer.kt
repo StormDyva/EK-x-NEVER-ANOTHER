@@ -1,14 +1,16 @@
 package com.example.neveranother.model
 
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-data class Customer (
-    @SerialName ("customer_ID") val customer_ID: Int? = null,
-    @SerialName ("firstName") val firstName: String,
-    @SerialName ("lastName") val lastName: String,
-    @SerialName ("streetName")val streetName: String,
-    @SerialName ("city")val city: String,
-    @SerialName ("postalCode")val postalCode: Int,
-    @SerialName ("phoneNumber")val phoneNumber: Int
+@Serializable
+data class Customer(
+    val customer_ID: Int? = null,
+    val firstName: String,
+    val lastName: String,
+    val streetName: String,
+    val city: String,
+    val postalCode: Int,
+    val phoneNumber: Int
 ) {
 }
