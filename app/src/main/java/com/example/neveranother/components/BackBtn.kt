@@ -18,8 +18,7 @@ import androidx.compose.ui.graphics.Color
 @Composable
 fun BackBTN(onBackButtonClick: () -> Unit, color: Color = Color.Black) {
     IconButton(
-        onClick = onBackButtonClick,
-        modifier = Modifier.padding( top = 90.dp)
+        onClick = onBackButtonClick
     ) {
         Icon(
             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
