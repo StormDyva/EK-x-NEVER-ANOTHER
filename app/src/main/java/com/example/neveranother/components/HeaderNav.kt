@@ -25,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.neveranother.R
@@ -34,16 +35,18 @@ fun Header() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(80.dp)
+            .height(70.dp)
             .background(Color(0xFFF8F5F2))
     ) {
 
         Image(
             modifier = Modifier
                 .width(200.dp)
+                .height(50.dp)
                 .align(Alignment.Center),
-            painter = painterResource(id = R.drawable.nablack),
-            contentDescription = "Logo"
+            painter = painterResource(id = R.drawable.nalogoblack700),
+            contentDescription = "Logo",
+            contentScale = ContentScale.Fit
         )
 
 

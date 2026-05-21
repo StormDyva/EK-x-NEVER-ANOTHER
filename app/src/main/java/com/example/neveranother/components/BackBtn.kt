@@ -16,8 +16,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 @Composable
 fun BackBTN(onBackButtonClick: () -> Unit) {
     IconButton(
-        onClick = onBackButtonClick,
-        modifier = Modifier.padding( top = 90.dp)
+        onClick = onBackButtonClick
     ) {
         Icon(
             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
