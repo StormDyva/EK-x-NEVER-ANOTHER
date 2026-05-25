@@ -36,7 +36,7 @@ fun ContinueBTN2(navController: NavHostController, vm: NAViewmodel) {
     ) {
         Button(
             modifier = Modifier.width(370.dp).height(60.dp),
-            onClick = { navController.navigate("ResultsOfMeasure-screen") },
+            onClick = { navController.navigate("LoadingFrame-screen") },
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF000000)
             ),
