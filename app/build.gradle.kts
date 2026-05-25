@@ -63,4 +63,5 @@ dependencies {
     implementation(platform("io.github.jan-tennert.supabase:bom:3.3.0"))
     implementation("io.github.jan-tennert.supabase:postgrest-kt")
     implementation("io.ktor:ktor-client-android:3.4.0")
+    implementation("androidx.compose.foundation:foundation:1.6.0")
 }

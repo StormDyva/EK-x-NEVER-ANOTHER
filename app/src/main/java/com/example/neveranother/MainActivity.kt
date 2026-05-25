@@ -57,7 +57,7 @@ class MainActivity : ComponentActivity() {
 
             ) {
                 Column {
-                    NavHost(navController = navController, startDestination = "BookFitting-screen") {
+                    NavHost(navController = navController, startDestination = "Home") {
 
                         composable("Basket-screen") {
                             Basket(navController, vm)
