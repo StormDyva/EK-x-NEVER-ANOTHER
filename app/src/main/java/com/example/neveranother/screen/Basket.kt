@@ -47,7 +47,7 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
         Header()
         BackBTN(
             { navController.popBackStack() },
-            color = Color.Black
+            color = Color.White
         )
 
         LazyColumn(
