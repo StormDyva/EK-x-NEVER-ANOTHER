@@ -34,6 +34,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.TextButton
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -153,137 +155,151 @@ fun Home(navController: NavHostController, vm: NAViewmodel) {
                     }
                 }
             }
-                Row {
-                    Text(
-                        text = "Læg i kurv",
-                        fontFamily = FontFamily(Font(R.font.inter_bold)),
-                        fontSize = 12.sp,
-                        modifier = Modifier.padding(horizontal = 25.dp)
+            Row {
+                Text(
+                    text = "Læg i kurv",
+                    fontFamily = FontFamily(Font(R.font.inter_bold)),
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(horizontal = 25.dp)
 
-                    )
-                    Text(
-                        text = "799 kr",
-                        fontFamily = FontFamily(Font(R.font.nohemi_regular)),
-                        fontSize = 20.sp,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(horizontal = 60.dp)
-                    )
-                }
-                Image(
-                    painter = painterResource(id = R.drawable.skillelinje),
-                    contentDescription = null,
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp)
                 )
-                Row(modifier = Modifier.fillMaxWidth()) {
-                    Spacer(modifier = Modifier.weight(1f))
-                    Image(
-                        painter = painterResource(id = R.drawable.trustpilot),
-                        contentDescription = null,
-                        modifier = Modifier.padding(end = 20.dp).size(50.dp)
-                    )
-                }
-                Row {
-                    Text(
-                        text = "KUNDEANMELDELSER",
-                        fontFamily = FontFamily(Font(R.font.inter_semibold)),
-                        modifier = Modifier.padding(horizontal = 25.dp)
-                    )
-                    Spacer(modifier = Modifier.weight(1f))
-                    Text(text = "Se alle", modifier = Modifier.padding(horizontal = 25.dp))
+                Text(
+                    text = "799 kr",
+                    fontFamily = FontFamily(Font(R.font.nohemi_regular)),
+                    fontSize = 20.sp,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(horizontal = 60.dp)
+                )
+            }
+            Image(
+                painter = painterResource(id = R.drawable.skillelinje),
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 10.dp)
+            )
+            Row(modifier = Modifier.fillMaxWidth()) {
+                Spacer(modifier = Modifier.weight(1f))
+                Image(
+                    painter = painterResource(id = R.drawable.trustpilot),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .padding(end = 20.dp)
+                        .size(50.dp)
+                )
+            }
+            Row {
+                Text(
+                    text = "KUNDEANMELDELSER",
+                    fontFamily = FontFamily(Font(R.font.inter_semibold)),
+                    modifier = Modifier.padding(horizontal = 25.dp)
+                )
+                Spacer(modifier = Modifier.weight(1f))
+                Text(text = "Se alle", modifier = Modifier.padding(horizontal = 25.dp))
 
-                }
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.reviewstars),
-                        contentDescription = null,
-                        modifier = Modifier.padding(10.dp)
-                    )
-                }
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.reviewstars),
+                    contentDescription = null,
+                    modifier = Modifier.padding(10.dp)
+                )
+            }
+            Box() {
+                Image(
+                    painter = painterResource(id = R.drawable.kundeanmeldelser),
+                    contentDescription = null,
+                    modifier = Modifier.padding(20.dp)
+                )
+            }
+            Column(
+            ) {
+                Text(
+                    text = "HVAD VORES KUNDER SIGER",
+                    fontFamily = FontFamily(Font(R.font.inter_semibold)),
+                    modifier = Modifier.padding(horizontal = 25.dp)
+                )
                 Box() {
                     Image(
-                        painter = painterResource(id = R.drawable.kundeanmeldelser),
+                        painter = painterResource(id = R.drawable.review3),
                         contentDescription = null,
                         modifier = Modifier.padding(20.dp)
                     )
                 }
-                Column(
-                ) {
-                    Text(
-                        text = "HVAD VORES KUNDER SIGER",
-                        fontFamily = FontFamily(Font(R.font.inter_semibold)),
-                        modifier = Modifier.padding(horizontal = 25.dp)
+                Box() {
+                    Image(
+                        painter = painterResource(id = R.drawable.review2),
+                        contentDescription = null,
+                        modifier = Modifier.padding(20.dp)
                     )
-                    Box() {
-                        Image(
-                            painter = painterResource(id = R.drawable.review3),
-                            contentDescription = null,
-                            modifier = Modifier.padding(20.dp)
-                        )
-                    }
-                    Box() {
-                        Image(
-                            painter = painterResource(id = R.drawable.review2),
-                            contentDescription = null,
-                            modifier = Modifier.padding(20.dp)
-                        )
-                    }
+                }
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.Center
+                ) {
                     Box(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier
+                            .background(Color.White, RoundedCornerShape(50.dp))
+                            .padding(horizontal = 24.dp, vertical = 12.dp),
                         contentAlignment = Alignment.Center
                     ) {
-                        Box(
-                            modifier = Modifier
-                                .background(Color.White, RoundedCornerShape(50.dp))
-                                .padding(horizontal = 24.dp, vertical = 12.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text("Vis flere")
-                        }
+                        Text("Vis flere")
                     }
+                }
+                Image(
+                    painter = painterResource(id = R.drawable.skillelinje),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 10.dp)
+                )
+                Box() {
                     Image(
-                        painter = painterResource(id = R.drawable.skillelinje),
+                        painter = painterResource(id = R.drawable.voresmission),
                         contentDescription = null,
-                        modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp)
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(20.dp)
                     )
-                    Box() {
-                        Image(
-                            painter = painterResource(id = R.drawable.voresmission),
-                            contentDescription = null,
-                            modifier = Modifier.fillMaxWidth().padding(20.dp)
-                        )
-                        Column(
-                            modifier = Modifier
-                                .padding(top = 30.dp)
-                                .align(Alignment.TopCenter)
+                    Column(
+                        modifier = Modifier
+                            .padding(top = 30.dp)
+                            .align(Alignment.TopCenter)
 
-                        ) {
-                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                Text(
-                                    text = "Vores mission",
-                                    fontFamily = FontFamily(Font(R.font.inter_extrabold)),
-                                    color = Color.White,
-                                    fontSize = 40.sp
-                                )
-                            }
-                        }
-                        Column(
-                            modifier = Modifier
-                                .align(Alignment.BottomCenter)
-                                .padding(28.dp)
-                        ) {
+                    ) {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             Text(
-                                text = "Vi designer BH'er til rigtige kroppe, lange dage og almindelige øjeblikke.",
+                                text = "Vores mission",
                                 fontFamily = FontFamily(Font(R.font.inter_extrabold)),
                                 color = Color.White,
-                                fontSize = 26.sp,
+                                fontSize = 40.sp
                             )
-                            Spacer(modifier = Modifier.height(20.dp))
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.End
+                        }
+                    }
+                    Column(
+                        modifier = Modifier
+                            .align(Alignment.BottomCenter)
+                            .padding(28.dp)
+                    ) {
+                        Text(
+                            text = "Vi designer BH'er til rigtige kroppe, lange dage og almindelige øjeblikke.",
+                            fontFamily = FontFamily(Font(R.font.inter_extrabold)),
+                            color = Color.White,
+                            fontSize = 26.sp,
+                        )
+                        Spacer(modifier = Modifier.height(20.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End
+                        )
+                        {
+                            TextButton(
+                                onClick = {
+                                    navController.navigate("OurMission-screen")
+                                }
                             ) {
                                 Text(
                                     text = "Læs mere om os →",
@@ -294,49 +310,59 @@ fun Home(navController: NavHostController, vm: NAViewmodel) {
                             }
                         }
                     }
+                }
 
+                Image(
+                    painter = painterResource(id = R.drawable.skillelinje),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 10.dp)
+                )
+
+                Box() {
                     Image(
-                        painter = painterResource(id = R.drawable.skillelinje),
+                        painter = painterResource(id = R.drawable.bookfitting),
                         contentDescription = null,
-                        modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp)
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(20.dp)
                     )
+                    Column(
+                        modifier = Modifier
+                            .padding(top = 30.dp)
+                            .align(Alignment.TopCenter)
 
-                    Box() {
-                        Image(
-                            painter = painterResource(id = R.drawable.bookfitting),
-                            contentDescription = null,
-                            modifier = Modifier.fillMaxWidth().padding(20.dp)
-                        )
-                        Column(
-                            modifier = Modifier
-                                .padding(top = 30.dp)
-                                .align(Alignment.TopCenter)
-
-                        ) {
-                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                Text(
-                                    text = "Book en gratis \ncustom BH \nfitting",
-                                    fontFamily = FontFamily(Font(R.font.inter_extrabold)),
-                                    color = Color.White,
-                                    fontSize = 40.sp
-                                )
-                            }
-                        }
-                        Column(
-                            modifier = Modifier
-                                .align(Alignment.BottomCenter)
-                                .padding(28.dp)
-                        ) {
+                    ) {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             Text(
-                                text = "Har du problemer med at måle dig selv? Vi er her for at hjælpe",
+                                text = "Book en gratis \ncustom BH \nfitting",
                                 fontFamily = FontFamily(Font(R.font.inter_extrabold)),
                                 color = Color.White,
-                                fontSize = 26.sp,
+                                fontSize = 40.sp
                             )
-                            Spacer(modifier = Modifier.height(20.dp))
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.End
+                        }
+                    }
+                    Column(
+                        modifier = Modifier
+                            .align(Alignment.BottomCenter)
+                            .padding(28.dp)
+                    ) {
+                        Text(
+                            text = "Har du problemer med at måle dig selv? Vi er her for at hjælpe",
+                            fontFamily = FontFamily(Font(R.font.inter_extrabold)),
+                            color = Color.White,
+                            fontSize = 26.sp,
+                        )
+                        Spacer(modifier = Modifier.height(20.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End
+                        ) {
+                            TextButton(
+                                onClick = {
+                                    navController.navigate("BookFitting-screen")
+                                }
                             ) {
                                 Text(
                                     text = "Book en tid til fitting →",
@@ -347,50 +373,60 @@ fun Home(navController: NavHostController, vm: NAViewmodel) {
                             }
                         }
                     }
+                }
 
+                Image(
+                    painter = painterResource(id = R.drawable.skillelinje),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 10.dp)
+                )
+
+                Box() {
                     Image(
-                        painter = painterResource(id = R.drawable.skillelinje),
+                        painter = painterResource(id = R.drawable.designogprodukt),
                         contentDescription = null,
-                        modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp)
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(20.dp)
                     )
+                    Column(
+                        modifier = Modifier
+                            .padding(top = 30.dp)
+                            .align(Alignment.TopCenter)
 
-                    Box() {
-                        Image(
-                            painter = painterResource(id = R.drawable.designogprodukt),
-                            contentDescription = null,
-                            modifier = Modifier.fillMaxWidth().padding(20.dp)
-                        )
-                        Column(
-                            modifier = Modifier
-                                .padding(top = 30.dp)
-                                .align(Alignment.TopCenter)
-
-                        ) {
-                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                Text(
-                                    text = "Design & produkt",
-                                    fontFamily = FontFamily(Font(R.font.inter_extrabold)),
-                                    color = Color.White,
-                                    fontSize = 40.sp,
-                                )
-                            }
-                        }
-                        Column(
-                            modifier = Modifier
-                                .align(Alignment.BottomCenter)
-                                .padding(28.dp)
-                        ) {
+                    ) {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             Text(
-                                text = "Strikket i ét stykke af vores produktionspartner i Holland med fokus på høj kvalitet og ansvarlig produktion",
+                                text = "Design & produkt",
                                 fontFamily = FontFamily(Font(R.font.inter_extrabold)),
                                 color = Color.White,
-                                fontSize = 26.sp,
-                                lineHeight = 40.sp
+                                fontSize = 40.sp,
                             )
-                            Spacer(modifier = Modifier.height(30.dp))
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.End
+                        }
+                    }
+                    Column(
+                        modifier = Modifier
+                            .align(Alignment.BottomCenter)
+                            .padding(28.dp)
+                    ) {
+                        Text(
+                            text = "Strikket i ét stykke af vores produktionspartner i Holland med fokus på høj kvalitet og ansvarlig produktion",
+                            fontFamily = FontFamily(Font(R.font.inter_extrabold)),
+                            color = Color.White,
+                            fontSize = 26.sp,
+                            lineHeight = 40.sp
+                        )
+                        Spacer(modifier = Modifier.height(30.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End
+                        ) {
+                            TextButton(
+                                onClick = {
+                                    navController.navigate("DesignAndProduct-screen")
+                                }
                             ) {
                                 Text(
                                     text = "Mere om design & produkt →",
@@ -402,8 +438,9 @@ fun Home(navController: NavHostController, vm: NAViewmodel) {
                         }
                     }
                 }
-                Spacer(modifier = Modifier.height(32.dp))
             }
+            Spacer(modifier = Modifier.height(32.dp))
         }
-        Header()
     }
+    Header()
+}
