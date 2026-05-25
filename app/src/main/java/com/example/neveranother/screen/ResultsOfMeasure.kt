@@ -148,7 +148,7 @@ fun ResultsOfMeasure(
                 MeasureRow(
                     R.drawable.upper_measure,
                     "Øvre omkreds",
-                    "101 cm"
+                    "${vm.upperMeasure.value} cm"
                 )
 
                 HorizontalDivider()
@@ -156,7 +156,7 @@ fun ResultsOfMeasure(
                 MeasureRow(
                     R.drawable.lower_measure,
                     "Nedre omkreds",
-                    "82 cm"
+                    "${vm.lowerMeasure.value} cm"
                 )
 
                 HorizontalDivider()

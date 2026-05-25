@@ -1,6 +1,7 @@
 package com.example.neveranother.screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -26,19 +27,15 @@ import com.example.neveranother.components.Header
 import com.example.neveranother.viewModel.NAViewmodel
 
 @Composable
-fun Measures2(navController: NavHostController, vm: NAViewmodel){
-    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally){
-        Text("Measures2")
-    }
-    ContinueBTN2(navController, vm)
-    BackBTN({ navController.popBackStack() }, color = Color.Black)
-    Header()
+fun Measures2(navController: NavHostController, vm: NAViewmodel) {
 
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color(0xFFF8F5F2))
             .padding(horizontal = 32.dp)
             .padding(top = 200.dp)
+
     ) {
 
         Row(
@@ -102,8 +99,8 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel){
         Spacer(modifier = Modifier.height(12.dp))
 
         OutlinedTextField(
-            value = "fx 100",
-            onValueChange = {},
+            value = vm.breastWidth.value,
+            onValueChange = { vm.updateBreastWidth(it) },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp),
@@ -181,8 +178,8 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel){
         Spacer(modifier = Modifier.height(12.dp))
 
         OutlinedTextField(
-            value = "fx 100",
-            onValueChange = {},
+            value = vm.breastHeight.value,
+            onValueChange = { vm.updateBreastHeight(it) },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp),
@@ -203,4 +200,7 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel){
 
         Spacer(modifier = Modifier.height(28.dp))
     }
+    ContinueBTN2(navController, vm)
+    BackBTN({ navController.popBackStack() }, color = Color.Black)
+    Header()
 }
