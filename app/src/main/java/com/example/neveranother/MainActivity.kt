@@ -116,6 +116,10 @@ class MainActivity : ComponentActivity() {
                         composable ("Supabase-screen") {
                             SupabaseScreen(navController, vm)
                         }
+                        composable("LoadingFrame"){
+                            LoadingFrame(navController, vm)
+
+                        }
                     }
                 }
             }
