@@ -80,10 +80,10 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
                             Text("Farve:  Sort", color = Color.Gray)
                             Text("Størrelse:", color = Color.Gray)
                             Spacer(modifier = Modifier.height(8.dp))
-                            Text("Øvre omkreds: 101 cm", color = Color.Gray)
-                            Text("Nedre omkreds: 82 cm", color = Color.Gray)
-                            Text("Brystbredde: 32 cm", color = Color.Gray)
-                            Text("Brysthøjde: 33 cm", color = Color.Gray)
+                            Text("Øvre omkreds: ${vm.upperMeasure.value} cm", color = Color.Gray)
+                            Text("Nedre omkreds: ${vm.lowerMeasure.value} cm", color = Color.Gray)
+                            Text("Brystbredde:${vm.breastWidth.value} cm", color = Color.Gray)
+                            Text("Brysthøjde: ${vm.breastHeight.value} cm", color = Color.Gray)
                         }
                     }
 
@@ -117,7 +117,7 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
             }
 
             item {
-                Spacer(modifier = Modifier.height(250.dp))
+                Spacer(modifier = Modifier.height(155.dp))
                 Text("ORDREOVERSIGT", fontFamily = FontFamily(Font(R.font.inter_black)), fontSize = 20.sp)
                 Spacer(modifier = Modifier.height(12.dp))
 
