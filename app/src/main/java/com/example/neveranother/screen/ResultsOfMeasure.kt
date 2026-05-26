@@ -164,7 +164,7 @@ fun ResultsOfMeasure(
                 MeasureRow(
                     R.drawable.upper_measure,
                     "Brystbredde",
-                    "32 cm"
+                     "${vm.breastWidth.value} cm"
                 )
 
                 HorizontalDivider()
@@ -172,7 +172,7 @@ fun ResultsOfMeasure(
                 MeasureRow(
                     R.drawable.lower_measure,
                     "Brysthøjde",
-                    "33 cm"
+                    "${vm.breastHeight.value} cm"
                 )
             }
 
