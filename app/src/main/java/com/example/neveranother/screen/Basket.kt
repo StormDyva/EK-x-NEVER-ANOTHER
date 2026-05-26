@@ -141,7 +141,7 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
 
         Spacer(modifier = Modifier.height(16.dp))
         Button(
-            onClick = { },
+            onClick = {navController.navigate("Purchased-screen") },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(56.dp),

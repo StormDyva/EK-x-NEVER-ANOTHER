@@ -71,7 +71,7 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel) {
                     painter = painterResource(id = R.drawable.upper_measure),
                     contentDescription = "Brystbredde",
                     modifier = Modifier
-                        .size(70.dp)
+                        .size(80.dp)
                         .padding(start = 6.dp),
                     contentScale = ContentScale.Fit
                 )
@@ -150,7 +150,7 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel) {
                     painter = painterResource(id = R.drawable.lower_measure),
                     contentDescription = "Nedre omkreds",
                     modifier = Modifier
-                        .size(70.dp)
+                        .size(80.dp)
                         .padding(start = 6.dp),
                     contentScale = ContentScale.Fit
                 )

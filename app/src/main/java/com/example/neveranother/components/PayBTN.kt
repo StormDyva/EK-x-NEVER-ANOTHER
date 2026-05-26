@@ -23,7 +23,7 @@ fun PayBTN(navController: NavHostController, vm: NAViewmodel) {
     ) {
         Button(
             modifier = Modifier,
-            onClick = { navController.navigate("Payment-screen") }) {
+            onClick = { navController.navigate("Purchased-screen") }) {
 
             Text("Gå til betaling")
         }

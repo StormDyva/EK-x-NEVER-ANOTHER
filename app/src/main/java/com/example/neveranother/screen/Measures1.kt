@@ -71,7 +71,7 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
                     painter = painterResource(id = R.drawable.upper_measure),
                     contentDescription = "Øvre omkreds",
                     modifier = Modifier
-                        .size(70.dp)
+                        .size(80.dp)
                         .padding(start = 6.dp),
                     contentScale = ContentScale.Fit
                 )
@@ -115,7 +115,7 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
             shape = RoundedCornerShape(8.dp)
         )
 
-        Spacer(modifier = Modifier.height(70.dp))
+        Spacer(modifier = Modifier.height(80.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
