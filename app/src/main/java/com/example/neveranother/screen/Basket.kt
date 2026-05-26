@@ -43,12 +43,9 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
             .fillMaxSize()
             .background(backgroundColor)
             .padding(horizontal = 16.dp)
+            .padding(top = 195.dp)
     ) {
-        Header(navController = navController)
-        BackBTN(
-            { navController.popBackStack() },
-            color = Color.White
-        )
+
 
         LazyColumn(
             modifier = Modifier.weight(1f)
@@ -152,5 +149,6 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
         }
         Spacer(modifier = Modifier.height(16.dp))
     }
+    Header(navController = navController)
     BackBTN({ navController.popBackStack() }, color = Color.Black)
 }
