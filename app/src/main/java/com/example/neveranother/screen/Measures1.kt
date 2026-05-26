@@ -67,19 +67,12 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.upper_measure),
-                    contentDescription = "Øvre omkreds",
-                    modifier = Modifier
-                        .size(70.dp)
-                        .padding(start = 6.dp),
-                    contentScale = ContentScale.Fit
-                )
 
-                Spacer(modifier = Modifier.height(42.dp))
+
+                Spacer(modifier = Modifier.height(2.dp))
 
                 Button(
-                    onClick = {navController.navigate("infoVideoNR1")},
+                    onClick = { navController.navigate("infoVideoNR1") },
                     modifier = Modifier.size(26.dp),
                     shape = CircleShape,
                     contentPadding = PaddingValues(0.dp),
@@ -104,6 +97,20 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp),
+
+            placeholder = {
+
+                Text(
+
+                    text = "77 - 113",
+
+                    color = Color.Gray,
+
+                    fontSize = 14.sp
+
+                )
+
+            },
             trailingIcon = {
                 Text(
                     text = "CM",
@@ -146,19 +153,8 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.lower_measure),
-                    contentDescription = "Nedre omkreds",
-                    modifier = Modifier
-                        .size(70.dp)
-                        .padding(start = 6.dp),
-                    contentScale = ContentScale.Fit
-                )
-
-                Spacer(modifier = Modifier.height(42.dp))
-
                 Button(
-                    onClick = {navController.navigate("infoVideoNR2")},
+                    onClick = { navController.navigate("infoVideoNR2") },
                     modifier = Modifier.size(26.dp),
                     shape = CircleShape,
                     contentPadding = PaddingValues(0.dp),
@@ -182,7 +178,19 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
             onValueChange = { vm.updateLowerMeasure(it) },
             modifier = Modifier
                 .fillMaxWidth()
-                .height(50.dp),
+                .height(50.dp), placeholder = {
+
+                Text(
+
+                    text = "65 - 100",
+
+                    color = Color.Gray,
+
+                    fontSize = 14.sp
+
+                )
+
+            },
             trailingIcon = {
                 Text(
                     text = "CM",

@@ -16,7 +16,6 @@ import kotlinx.serialization.Serializable
 
 
 @Composable
-
 fun SupabaseScreen(navController: NavHostController, vm: NAViewmodel){
     Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally){
         Text("Supabase")

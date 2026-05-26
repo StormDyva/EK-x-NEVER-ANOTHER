@@ -35,15 +35,16 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.TextButton
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.style.TextAlign
-
 
 
 @Composable
@@ -156,13 +157,20 @@ fun Home(navController: NavHostController, vm: NAViewmodel) {
                 }
             }
             Row {
-                Text(
-                    text = "Læg i kurv",
-                    fontFamily = FontFamily(Font(R.font.inter_bold)),
-                    fontSize = 12.sp,
-                    modifier = Modifier.padding(horizontal = 25.dp)
+                Button(
+                    onClick = { navController.navigate("GetStarted-screen") },
+                    modifier = Modifier.padding(horizontal = 2.dp),
+                    colors = ButtonDefaults.buttonColors(
 
-                )
+                        containerColor = Color.Transparent
+
+                    )
+                ) {
+                    Text(
+                        "Læg i kurv",
+                        color = Color.Black
+                    )
+                }
                 Text(
                     text = "799 kr",
                     fontFamily = FontFamily(Font(R.font.nohemi_regular)),
