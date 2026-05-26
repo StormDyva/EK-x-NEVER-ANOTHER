@@ -46,7 +46,7 @@ fun Purchased(navController: NavHostController, vm: NAViewmodel){
         modifier = Modifier
             .fillMaxSize()
     ) {
-        Header()
+        Header(navController = navController)
 
         LazyColumn(
             modifier = Modifier

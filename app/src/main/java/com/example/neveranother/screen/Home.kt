@@ -442,5 +442,5 @@ fun Home(navController: NavHostController, vm: NAViewmodel) {
             Spacer(modifier = Modifier.height(32.dp))
         }
     }
-    Header()
+    Header(navController = navController)
 }

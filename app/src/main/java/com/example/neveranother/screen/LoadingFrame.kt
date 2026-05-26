@@ -58,7 +58,7 @@ fun LoadingFrame(
             contentScale = ContentScale.Crop
         )
 
-        Header()
+        Header(navController = navController)
 
 
         Text(
