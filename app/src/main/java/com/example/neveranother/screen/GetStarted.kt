@@ -56,7 +56,7 @@ fun GetStarted(navController: NavHostController, vm: NAViewmodel) {
                 .fillMaxHeight(0.54f)
         )
 
-        Header()
+        Header(navController = navController)
 
         BackBTN(
             { navController.popBackStack() },

@@ -44,7 +44,7 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
             .background(backgroundColor)
             .padding(horizontal = 16.dp)
     ) {
-        Header()
+        Header(navController = navController)
         BackBTN(
             { navController.popBackStack() },
             color = Color.White
@@ -152,4 +152,5 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
         }
         Spacer(modifier = Modifier.height(16.dp))
     }
+    BackBTN({ navController.popBackStack() }, color = Color.Black)
 }

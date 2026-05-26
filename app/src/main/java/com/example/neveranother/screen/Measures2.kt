@@ -202,5 +202,5 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel) {
     }
     ContinueBTN2(navController, vm)
     BackBTN({ navController.popBackStack() }, color = Color.Black)
-    Header()
+    Header(navController = navController)
 }

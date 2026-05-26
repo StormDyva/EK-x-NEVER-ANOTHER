@@ -43,7 +43,7 @@ fun ResultsOfMeasure(
     ) {
 
         // HEADER
-        Header()
+        Header(navController = navController)
 
         BackBTN(
             { navController.popBackStack() },
@@ -116,7 +116,7 @@ fun ResultsOfMeasure(
                     withStyle(
                         SpanStyle(color = Color(0xFFE8957A))
                     ) {
-                        append("Bra n. 102")
+                        append("Bra n. 167")
                     }
                 },
                 modifier = Modifier.fillMaxWidth(),
@@ -278,6 +278,7 @@ fun ResultsOfMeasure(
 
         }
     }
+    BackBTN({ navController.popBackStack() }, color = Color.Black)
 }
 
 @Composable

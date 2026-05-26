@@ -160,7 +160,7 @@ fun OurMission(navController: NavHostController, vm: NAViewmodel) {
                     fontSize = 18.sp
                 )
             }
-            Header()
+            Header(navController = navController)
 
             BackBTN(
                 { navController.popBackStack() },
