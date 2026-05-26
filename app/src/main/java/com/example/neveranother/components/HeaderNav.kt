@@ -55,7 +55,7 @@ fun Header(navController: NavController) {
             )
 
             Row(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier.fillMaxSize().padding(top = 9.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -63,13 +63,6 @@ fun Header(navController: NavController) {
                     Icon(
                         imageVector = Icons.Filled.Menu,
                         contentDescription = "Menu"
-                    )
-                }
-
-                IconButton(onClick = { }) {
-                    Icon(
-                        imageVector = Icons.Outlined.ShoppingBag,
-                        contentDescription = "Kurv"
                     )
                 }
             }
