@@ -79,7 +79,7 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
                 Spacer(modifier = Modifier.height(42.dp))
 
                 Button(
-                    onClick = {},
+                    onClick = {navController.navigate("infoVideoNR1")},
                     modifier = Modifier.size(26.dp),
                     shape = CircleShape,
                     contentPadding = PaddingValues(0.dp),
@@ -158,7 +158,7 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
                 Spacer(modifier = Modifier.height(42.dp))
 
                 Button(
-                    onClick = {},
+                    onClick = {navController.navigate("infoVideoNR2")},
                     modifier = Modifier.size(26.dp),
                     shape = CircleShape,
                     contentPadding = PaddingValues(0.dp),

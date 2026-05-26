@@ -31,6 +31,10 @@ import com.example.neveranother.screen.BookFitting
 import com.example.neveranother.screen.DesignAndProduct
 import com.example.neveranother.screen.GetStarted
 import com.example.neveranother.screen.Home
+import com.example.neveranother.screen.InfoVideoNR1
+import com.example.neveranother.screen.InfoVideoNR2
+import com.example.neveranother.screen.InfoVideoNR3
+import com.example.neveranother.screen.InfoVideoNR4
 import com.example.neveranother.screen.LoadingFrame
 import com.example.neveranother.screen.Measures1
 import com.example.neveranother.screen.Measures2
@@ -57,7 +61,10 @@ class MainActivity : ComponentActivity() {
 
             ) {
                 Column {
-                    NavHost(navController = navController, startDestination = "ResultsOfMeasure-screen") {
+                    NavHost(
+                        navController = navController,
+                        startDestination = "Home"
+                    ) {
 
                         composable("Basket-screen") {
                             Basket(navController, vm)
@@ -110,15 +117,26 @@ class MainActivity : ComponentActivity() {
                         composable("Purchased-screen") {
                             Purchased(navController, vm)
                         }
-                        composable  ("Basket-screen"){
+                        composable("Basket-screen") {
                             Basket(navController, vm)
                         }
-                        composable ("Supabase-screen") {
+                        composable("Supabase-screen") {
                             SupabaseScreen(navController, vm)
                         }
-                        composable("LoadingFrame"){
+                        composable("LoadingFrame") {
                             LoadingFrame(navController, vm)
-
+                        }
+                        composable("infoVideoNR1") {
+                            InfoVideoNR1(navController, vm)
+                        }
+                        composable("infoVideoNR2") {
+                            InfoVideoNR2(navController, vm)
+                        }
+                        composable("infoVideoNR3") {
+                            InfoVideoNR3(navController, vm)
+                        }
+                        composable("infoVideoNR4") {
+                            InfoVideoNR4(navController, vm)
                         }
                     }
                 }
