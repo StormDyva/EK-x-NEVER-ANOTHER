@@ -81,6 +81,15 @@ class NAViewmodelTest {
         assertEquals(false, vm.isUpperMeasureValid())
     }
 
+    @Test
+    fun `Upper rejects symbols`() {
+        val vm = NAViewmodel()
+
+        vm.updateUpperMeasure("@")
+
+        assertEquals(false, vm.isUpperMeasureValid())
+    }
+
 
 
 //Lower measurements
@@ -156,4 +165,14 @@ class NAViewmodelTest {
 
         assertEquals(false, vm.isLowerMeasureValid())
     }
+
+    @Test
+    fun `Lower rejects symbols`() {
+        val vm = NAViewmodel()
+
+        vm.updateUpperMeasure("@")
+
+        assertEquals(false, vm.isUpperMeasureValid())
+    }
+
 }
