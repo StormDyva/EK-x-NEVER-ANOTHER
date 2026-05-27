@@ -19,9 +19,9 @@ import kotlinx.serialization.Serializable
 fun SupabaseScreen(navController: NavHostController, vm: NAViewmodel){
     Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally){
         Text("Supabase")
-        SupabaseDatabase
     }
 }
+
 val supabase = createSupabaseClient(
     supabaseUrl = "https://ofmzqiwzioamrjhbgvhi.supabase.co",
     supabaseKey = "sb_publishable_8Y6VX4LpCWuv2T5Tt04nmw_rb6pCmqK"
