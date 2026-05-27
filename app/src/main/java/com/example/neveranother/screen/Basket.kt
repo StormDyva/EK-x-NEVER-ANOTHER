@@ -114,7 +114,7 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
             }
 
             item {
-                Spacer(modifier = Modifier.height(155.dp))
+                Spacer(modifier = Modifier.height(129.dp))
                 Text("ORDREOVERSIGT", fontFamily = FontFamily(Font(R.font.inter_black)), fontSize = 20.sp)
                 Spacer(modifier = Modifier.height(12.dp))
 
@@ -136,18 +136,19 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
             }
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(10.dp))
         Button(
-            onClick = { navController.navigate("Purchased-screen")},
+            onClick = { navController.navigate("OrderInformation-screen")},
             modifier = Modifier
                 .fillMaxWidth()
-                .height(56.dp),
-            shape = RoundedCornerShape(15.dp),
+                .width(370.dp)
+                .height(60.dp),
+            shape = RoundedCornerShape(8.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
         ) {
-            Text("Gå til betaling", color = Color.White, fontSize = 16.sp)
+            Text("Videre til kassen", color = Color.White, fontSize = 16.sp)
         }
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(35.dp))
     }
     Header(navController = navController)
     BackBTN({ navController.popBackStack() }, color = Color.Black)

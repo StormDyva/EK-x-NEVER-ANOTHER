@@ -63,7 +63,7 @@ class MainActivity : ComponentActivity() {
                 Column {
                     NavHost(
                         navController = navController,
-                        startDestination = "Measures1-screen"
+                        startDestination = "OrderInformation-screen"
                     ) {
 
                         composable("Basket-screen") {

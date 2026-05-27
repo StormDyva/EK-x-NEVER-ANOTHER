@@ -75,7 +75,7 @@ fun ResultsOfMeasure(
                 text = buildAnnotatedString {
                     append("Du er Never Another's\nunikke ")
                     withStyle(SpanStyle(color = Color(0xFFE8957A))) {
-                        append("Bra n. 167")
+                        append("Bra no. 167")
                     }
                 },
                 modifier = Modifier.fillMaxWidth(),
