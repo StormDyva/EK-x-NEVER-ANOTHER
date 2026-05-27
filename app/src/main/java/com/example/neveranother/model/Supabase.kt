@@ -31,14 +31,16 @@ val supabase = createSupabaseClient(
 
 object SupabaseDatabase {
 
-    suspend fun insertCustomer(firstName: String,
-                               lastName: String,
-                               streetName: String,
-                               city: String,
-                               postalCode: Int,
-                               email: String,
-                               phoneNumber: Int): Int {
-        val result = supabase
+    suspend fun insertCustomer(
+        firstName: String,
+        lastName: String,
+        streetName: String,
+        city: String,
+        postalCode: Int,
+        email: String,
+        phoneNumber: Int
+    ) {
+        supabase
             .from("Customer")
             .insert(Customer(
                 firstName = firstName,
@@ -47,10 +49,7 @@ object SupabaseDatabase {
                 city = city,
                 postalCode = postalCode,
                 email = email,
-                phoneNumber = phoneNumber)) {
-                select()
-            }
-            .decodeSingle<Customer>()
-        return result.customer_ID!!
+                phoneNumber = phoneNumber
+            ))
     }
 }

@@ -166,8 +166,9 @@ fun OrderInformation(navController: NavHostController, vm: NAViewmodel) {
 
                 println("Navn: $firstName $lastName")
                 println("Email: $email")
-                println("Telefon: $phoneNumber")
-                println("Email: $postalCode")
+                println("Street name: $streetName")
+                println("City: $city")
+                println("post nr: $postalCode")
                 println("Telefon: $phoneNumber")
 
 

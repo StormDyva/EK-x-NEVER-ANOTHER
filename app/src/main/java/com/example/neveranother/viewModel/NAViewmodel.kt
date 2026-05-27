@@ -26,17 +26,18 @@ class NAViewmodel: ViewModel() {
     ) {
         viewModelScope.launch {
             try {
-                val id = SupabaseDatabase.insertCustomer(
+                SupabaseDatabase.insertCustomer(
                     firstName = firstName,
                     lastName = lastName,
                     streetName = streetName,
                     city = city,
                     postalCode = postalCode,
                     phoneNumber = phoneNumber,
-                    email = email,
+                    email = email
                 )
-                customerId.value = id
+                println("Kunde gemt!")
             } catch (e: Exception) {
+                println("FEJL: ${e.message}")
                 e.printStackTrace()
             }
         }
