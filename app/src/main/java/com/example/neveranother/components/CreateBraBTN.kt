@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -32,11 +33,12 @@ fun CreateBraBTN(navController: NavHostController, vm: NAViewmodel) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Button(
-            modifier = Modifier.width(187.dp).height(40.dp),
+            modifier = Modifier.width(175.dp).height(50.dp),
             onClick = { navController.navigate("GetStarted-screen") },
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xCCF8F5F2)
-            )
+            ),
+            shape = RoundedCornerShape(8.dp)
         ) {
             Text(
                 text = "Skab din BH",

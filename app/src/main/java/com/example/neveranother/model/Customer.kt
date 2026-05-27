@@ -1,5 +1,6 @@
 package com.example.neveranother.model
 
+import android.R
 import kotlinx.serialization.SerialName
 
 data class Customer (
@@ -9,6 +10,7 @@ data class Customer (
     @SerialName ("streetName")val streetName: String,
     @SerialName ("city")val city: String,
     @SerialName ("postalCode")val postalCode: Int,
-    @SerialName ("phoneNumber")val phoneNumber: Int
+    @SerialName ("phoneNumber")val phoneNumber: Int,
+    @SerialName ("email") val email: String
 ) {
 }

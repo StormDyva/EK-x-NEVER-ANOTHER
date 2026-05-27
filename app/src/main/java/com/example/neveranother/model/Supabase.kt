@@ -36,6 +36,7 @@ object SupabaseDatabase {
                                streetName: String,
                                city: String,
                                postalCode: Int,
+                               email: String,
                                phoneNumber: Int): Int {
         val result = supabase
             .from("Customer")
@@ -45,6 +46,7 @@ object SupabaseDatabase {
                 streetName = streetName,
                 city = city,
                 postalCode = postalCode,
+                email = email,
                 phoneNumber = phoneNumber)) {
                 select()
             }

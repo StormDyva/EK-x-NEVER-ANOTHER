@@ -18,6 +18,10 @@ import androidx.compose.material3.Checkbox
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,6 +37,15 @@ import com.example.neveranother.viewModel.NAViewmodel
 
 fun OrderInformation(navController: NavHostController, vm: NAViewmodel) {
 
+    var email by remember { mutableStateOf("") }
+    var country by remember { mutableStateOf("") }
+    var firstName by remember { mutableStateOf("") }
+    var lastName by remember { mutableStateOf("") }
+    var streetName by remember { mutableStateOf("") }
+    var postalCode by remember { mutableStateOf("") }
+    var city by remember { mutableStateOf("") }
+    var phoneNumber by remember { mutableStateOf("") }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -47,8 +60,8 @@ fun OrderInformation(navController: NavHostController, vm: NAViewmodel) {
         Spacer(modifier = Modifier.height(12.dp))
 
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = email,
+            onValueChange = {email = it},
             placeholder = { Text("Email", color = Color.Gray) },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(4.dp)
@@ -60,30 +73,21 @@ fun OrderInformation(navController: NavHostController, vm: NAViewmodel) {
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        OutlinedTextField(
-            value = "",
-            onValueChange = {},
-            placeholder = { Text("Land", color = Color.Gray) },
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(4.dp),
-        )
-
-        Spacer(modifier = Modifier.height(12.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = firstName,
+                onValueChange = {firstName = it},
                 placeholder = { Text("Fornavn", color = Color.Gray) },
                 modifier = Modifier.weight(1f),
                 shape = RoundedCornerShape(4.dp)
             )
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = lastName,
+                onValueChange = {lastName = it},
                 placeholder = { Text("Efternavn", color = Color.Gray) },
                 modifier = Modifier.weight(1f),
                 shape = RoundedCornerShape(4.dp)
@@ -93,8 +97,18 @@ fun OrderInformation(navController: NavHostController, vm: NAViewmodel) {
         Spacer(modifier = Modifier.height(12.dp))
 
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = country,
+            onValueChange = {country = it},
+            placeholder = { Text("Land", color = Color.Gray) },
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(4.dp)
+        )
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        OutlinedTextField(
+            value = streetName,
+            onValueChange = {streetName = it},
             placeholder = { Text("Addresse", color = Color.Gray) },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(4.dp)
@@ -107,16 +121,18 @@ fun OrderInformation(navController: NavHostController, vm: NAViewmodel) {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
+
+
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = postalCode,
+                onValueChange = {postalCode = it},
                 placeholder = { Text("Post nr.", color = Color.Gray) },
                 modifier = Modifier.weight(1f),
                 shape = RoundedCornerShape(4.dp)
             )
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = city,
+                onValueChange = {city = it},
                 placeholder = { Text("By", color = Color.Gray) },
                 modifier = Modifier.weight(1f),
                 shape = RoundedCornerShape(4.dp)
@@ -126,8 +142,8 @@ fun OrderInformation(navController: NavHostController, vm: NAViewmodel) {
         Spacer(modifier = Modifier.height(12.dp))
 
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = phoneNumber,
+            onValueChange = {phoneNumber = it},
             placeholder = { Text("Telefon", color = Color.Gray) },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(4.dp)
@@ -136,10 +152,28 @@ fun OrderInformation(navController: NavHostController, vm: NAViewmodel) {
         Spacer(modifier = Modifier.height(130.dp))
 
         Button(
-            onClick = { navController.navigate("Purchased-screen")},
+            onClick = {
+
+                vm.saveCustomer(
+                    firstName = firstName,
+                    lastName = lastName,
+                    streetName = streetName,
+                    email = email,
+                    city = city,
+                    postalCode = postalCode.toIntOrNull() ?: 0,
+                    phoneNumber = phoneNumber.toIntOrNull() ?: 0
+                )
+
+                println("Navn: $firstName $lastName")
+                println("Email: $email")
+                println("Telefon: $phoneNumber")
+                println("Email: $postalCode")
+                println("Telefon: $phoneNumber")
+
+
+            },
             modifier = Modifier
                 .fillMaxWidth()
-                .width(370.dp)
                 .height(60.dp),
             shape = RoundedCornerShape(8.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
@@ -155,4 +189,6 @@ fun OrderInformation(navController: NavHostController, vm: NAViewmodel) {
         color = Color.Black
     )
 }
+
+
 
