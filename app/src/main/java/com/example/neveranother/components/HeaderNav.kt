@@ -3,6 +3,7 @@ package com.example.neveranother.components
 import android.R.attr.icon
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,6 +19,7 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.ShoppingBag
 import androidx.compose.material.icons.outlined.ShoppingBag
 import androidx.compose.material3.Button
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -28,46 +30,46 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.neveranother.R
 
 @Composable
-fun Header() {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(70.dp)
-            .background(Color(0xFFF8F5F2))
-    ) {
-
-        Image(
+fun Header(navController: NavController) {
+    Column {
+        Box(
             modifier = Modifier
-                .width(200.dp)
-                .height(50.dp)
-                .align(Alignment.Center),
-            painter = painterResource(id = R.drawable.nalogoblack700),
-            contentDescription = "Logo",
-            contentScale = ContentScale.Fit
-        )
-
-
-        Row(
-            modifier = Modifier.fillMaxSize(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+                .fillMaxWidth()
+                .height(70.dp)
+                .background(Color(0xFFF8F5F2))
         ) {
-            IconButton(onClick = { }) {
-                Icon(
-                    imageVector = Icons.Filled.Menu,
-                    contentDescription = "Menu"
-                )
-            }
 
-            IconButton(onClick = { }) {
-                Icon(
-                    imageVector = Icons.Outlined.ShoppingBag,
-                    contentDescription = "Kurv"
-                )
+            Image(
+                modifier = Modifier
+                    .width(200.dp)
+                    .height(50.dp)
+                    .align(Alignment.Center)
+                    .clickable { navController.navigate("home") },
+                painter = painterResource(id = R.drawable.nalogoblack700),
+                contentDescription = "Logo",
+                contentScale = ContentScale.Fit
+            )
+
+            Row(
+                modifier = Modifier.fillMaxSize().padding(top = 9.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                IconButton(onClick = { }) {
+                    Icon(
+                        imageVector = Icons.Filled.Menu,
+                        contentDescription = "Menu"
+                    )
+                }
             }
         }
+        HorizontalDivider(
+            color = Color.LightGray,
+            thickness = 1.dp
+        )
     }
 }

@@ -2,14 +2,24 @@ package com.example.neveranother.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,87 +46,36 @@ fun ResultsOfMeasure(
     navController: NavHostController,
     vm: NAViewmodel
 ) {
+    var selectedIndex by remember { mutableStateOf(0) }
+
+    val images = listOf(
+        R.drawable.white_bra_model,
+        R.drawable.model_bra_black
+    )
+    val colorLabels = listOf("Hvid", "Sort")
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF8F5F2))
     ) {
 
-        // HEADER
-        Header()
+        Header(navController = navController)
 
-        BackBTN(
-            { navController.popBackStack() },
-            color = Color.White
-        )
-
-        // MAIN CONTENT
         Column(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth()
+                .padding(top = 50.dp)
                 .padding(horizontal = 20.dp)
         ) {
 
-            // RESULT CARD
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = Color.White
-                )
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(12.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(48.dp)
-                            .background(Color(0xFFF7E6E0), CircleShape),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = "✓",
-                            fontSize = 26.sp,
-                            color = Color.Black
-                        )
-                    }
 
-                    Spacer(modifier = Modifier.width(12.dp))
-
-                    Column {
-                        Text(
-                            text = "Resultatet af dine mål",
-                            fontFamily = FontFamily(Font(R.font.nohemi_bold)),
-                            fontSize = 22.sp,
-                            color = Color.Black
-                        )
-
-                        Text(
-                            text = "Vi har regnet på målene og kan nu lave din perfekte BH",
-                            fontFamily = FontFamily(Font(R.font.inter_regular)),
-                            fontSize = 14.sp,
-                            lineHeight = 18.sp,
-                            color = Color.Black
-                        )
-                    }
-                }
-            }
-
-            Spacer(modifier = Modifier.height(18.dp))
-
-            // BRA NUMBER TEXT
             Text(
                 text = buildAnnotatedString {
                     append("Du er Never Another's\nunikke ")
-
-                    withStyle(
-                        SpanStyle(color = Color(0xFFE8957A))
-                    ) {
-                        append("Bra n. 102")
+                    withStyle(SpanStyle(color = Color(0xFFE8957A))) {
+                        append("Bra n. 167")
                     }
                 },
                 modifier = Modifier.fillMaxWidth(),
@@ -127,162 +86,86 @@ fun ResultsOfMeasure(
                 textAlign = TextAlign.Center
             )
 
-            Text(
-                text = "♥",
-                modifier = Modifier.fillMaxWidth(),
-                fontSize = 16.sp,
-                color = Color(0xFFE8957A),
-                textAlign = TextAlign.Center
-            )
+            Spacer(modifier = Modifier.height(54.dp))
 
-            Spacer(modifier = Modifier.height(12.dp))
-
-            // MEASUREMENTS CARD
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = Color.White
-                )
+                colors = CardDefaults.cardColors(containerColor = Color.Transparent)
             ) {
-                MeasureRow(
-                    R.drawable.upper_measure,
-                    "Øvre omkreds",
-                    "${vm.upperMeasure.value} cm"
-                )
-
+                MeasureRow("Øvre omkreds", "${vm.upperMeasure.value} cm")
                 HorizontalDivider()
-
-                MeasureRow(
-                    R.drawable.lower_measure,
-                    "Nedre omkreds",
-                    "${vm.lowerMeasure.value} cm"
-                )
-
+                MeasureRow("Nedre omkreds", "${vm.lowerMeasure.value} cm")
                 HorizontalDivider()
-
-                MeasureRow(
-                    R.drawable.upper_measure,
-                    "Brystbredde",
-                    "32 cm"
-                )
-
+                MeasureRow("Brystbredde", "${vm.breastWidth.value} cm")
                 HorizontalDivider()
-
-                MeasureRow(
-                    R.drawable.lower_measure,
-                    "Brysthøjde",
-                    "33 cm"
-                )
+                MeasureRow("Brysthøjde", "${vm.breastHeight.value} cm")
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // PRODUCT IMAGE
-            Image(
-                painter = painterResource(id = R.drawable.model_bra),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(240.dp)
-                    .clip(RoundedCornerShape(16.dp)),
-                contentScale = ContentScale.Crop
-            )
-        }
-
-
-        Row(
-
-            modifier = Modifier
-
-                .fillMaxWidth()
-
-                .padding(horizontal = 20.dp)
-
-                .padding(bottom = 16.dp)
-
-        ) {
-
-            // VENSTRE SIDE
-
-            Card(
-
-                modifier = Modifier
-
-                    .weight(1f)
-
-                    .height(56.dp),
-
-                shape = RoundedCornerShape(
-
-                    topStart = 16.dp,
-
-                    bottomStart = 16.dp
-
-                ),
-
-                colors = CardDefaults.cardColors(
-
-                    containerColor = Color.Black
-
-                )
-
-            ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
                 Box(
-
-                    modifier = Modifier.fillMaxSize(),
-
-                    contentAlignment = Alignment.Center
-
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(320.dp)
+                        .clip(RoundedCornerShape(16.dp))
                 ) {
-
-                    Text(
-
-                        text = "799,00 kr",
-
-                        color = Color.White,
-
-                        fontSize = 18.sp
-
+                    Image(
+                        painter = painterResource(id = images[selectedIndex]),
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop
                     )
 
+                    Text(
+                        text = "799,00 kr",
+                        modifier = Modifier
+                            .align(Alignment.TopEnd)
+                            .padding(10.dp)
+                            .background(Color.White, RoundedCornerShape(8.dp))
+                            .padding(horizontal = 10.dp, vertical = 4.dp),
+                        fontFamily = FontFamily(Font(R.font.inter_regular)),
+                        fontSize = 14.sp,
+                        color = Color.Black
+                    )
                 }
 
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Row(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(15.dp))
+                        .border(1.dp, Color.DarkGray, RoundedCornerShape(15.dp))
+                ) {
+                    colorLabels.forEachIndexed { index, label ->
+                        Box(
+                            modifier = Modifier
+                                .clickable { selectedIndex = index }
+                                .background(
+                                    if (selectedIndex == index) Color.DarkGray else Color.Transparent
+                                )
+                                .padding(horizontal = 24.dp, vertical = 8.dp),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = label,
+                                color = if (selectedIndex == index) Color.White else Color.Black,
+                                fontFamily = FontFamily(Font(R.font.inter_regular)),
+                                fontSize = 14.sp
+                            )
+                        }
+                    }
+                }
             }
-            Card(
-
-                modifier = Modifier
-
-                    .weight(1f)
-
-                    .height(56.dp),
-
-                shape = RoundedCornerShape(
-
-                    topEnd = 16.dp,
-
-                    bottomEnd = 16.dp
-
-                ),
-
-                colors = CardDefaults.cardColors(
-
-                    containerColor = Color(0xFFE8957A)
-
-                )
-
-            ){AddToBasketBTN(navController, vm)}
-
-            // ADD TO BASKET BUTTON
-
         }
+        AddToBasketBTN(navController, vm)
     }
 }
 
 @Composable
 fun MeasureRow(
-    icon: Int,
     title: String,
     value: String
 ) {
@@ -292,25 +175,20 @@ fun MeasureRow(
             .padding(horizontal = 14.dp, vertical = 10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Image(
-            painter = painterResource(id = icon),
-            contentDescription = null,
-            modifier = Modifier.size(24.dp)
-        )
 
         Spacer(modifier = Modifier.width(12.dp))
 
         Text(
             text = title,
             modifier = Modifier.weight(1f),
-            fontFamily = FontFamily(Font(R.font.inter_regular)),
-            fontSize = 14.sp
+            fontFamily = FontFamily(Font(R.font.inter_semibold)),
+            fontSize = 15.sp
         )
 
         Text(
             text = value,
-            fontFamily = FontFamily(Font(R.font.inter_regular)),
-            fontSize = 14.sp
+            fontFamily = FontFamily(Font(R.font.inter_semibold)),
+            fontSize = 15.sp
         )
     }
 }

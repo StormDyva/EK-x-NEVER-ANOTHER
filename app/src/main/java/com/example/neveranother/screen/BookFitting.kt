@@ -143,7 +143,7 @@ import com.example.neveranother.viewModel.NAViewmodel
 
              Spacer(modifier = Modifier.height(40.dp))
          }
-         Header()
+         Header(navController = navController)
 
          BackBTN(
              { navController.popBackStack() },

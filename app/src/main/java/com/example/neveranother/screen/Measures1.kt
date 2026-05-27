@@ -25,6 +25,9 @@ import com.example.neveranother.components.BackBTN
 import com.example.neveranother.components.ContinueBTN1
 import com.example.neveranother.components.Header
 import com.example.neveranother.viewModel.NAViewmodel
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material3.Icon
 
 @Composable
 fun Measures1(navController: NavHostController, vm: NAViewmodel) {
@@ -35,8 +38,55 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
             .fillMaxSize()
             .background(Color(0xFFF8F5F2))
             .padding(horizontal = 32.dp)
-            .padding(top = 200.dp)
+            .padding(top = 100.dp)
     ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 95.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ) {
+
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .size(30.dp)
+                    .background(
+                        color = Color(0xFF000000),
+                        shape = CircleShape
+                    )
+            ) {
+                Text(
+                    text = "1",
+                    color = Color.White,
+                    fontSize = 20.sp
+                )
+            }
+
+            Box(
+                modifier = Modifier
+                    .width(50.dp)
+                    .height(4.dp)
+                    .background(Color(0xFF888888))
+            )
+
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .size(30.dp)
+                    .background(
+                        color = Color(0xFF888888),
+                        shape = CircleShape
+                    )
+            ) {
+                Text(
+                    text = "2",
+                    color = Color.White,
+                    fontSize = 20.sp
+                )
+            }
+        }
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -57,7 +107,9 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "Mål din omkreds over den fyldigste del af brystet, og indtast dine mål nedenfor. Klik på info-knappen for en instruktionsvideo.",
+                    text = "Mål din omkreds over den fyldigste del af brystet, og " +
+                            "indtast dine mål nedenfor. Klik på play-knappen " +
+                            "for en instruktionsvideo.",
                     fontFamily = FontFamily(Font(R.font.inter_regular)),
                     fontSize = 20.sp,
                     lineHeight = 24.sp
@@ -67,30 +119,23 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.upper_measure),
-                    contentDescription = "Øvre omkreds",
-                    modifier = Modifier
-                        .size(80.dp)
-                        .padding(start = 6.dp),
-                    contentScale = ContentScale.Fit
-                )
 
-                Spacer(modifier = Modifier.height(42.dp))
+
+                Spacer(modifier = Modifier.height(2.dp))
 
                 Button(
-                    onClick = {},
-                    modifier = Modifier.size(26.dp),
+                    onClick = { navController.navigate("infoVideoNR1") },
+                    modifier = Modifier.size(31.dp),
                     shape = CircleShape,
                     contentPadding = PaddingValues(0.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFFFF9800)
                     )
                 ) {
-                    Text(
-                        text = "i",
-                        color = Color.Black,
-                        fontSize = 18.sp
+                    Icon(
+                        imageVector = Icons.Default.PlayArrow,
+                        contentDescription = "Afspil video",
+                        tint = Color.White
                     )
                 }
             }
@@ -104,6 +149,20 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp),
+
+            placeholder = {
+
+                Text(
+
+                    text = "77 - 113",
+
+                    color = Color.Gray,
+
+                    fontSize = 14.sp
+
+                )
+
+            },
             trailingIcon = {
                 Text(
                     text = "CM",
@@ -115,7 +174,7 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
             shape = RoundedCornerShape(8.dp)
         )
 
-        Spacer(modifier = Modifier.height(80.dp))
+        Spacer(modifier = Modifier.height(70.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -136,7 +195,8 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "Mål din omkreds lige under brystet, og indtast dine mål nedenfor. Klik på info-knappen for en instruktionsvideo.",
+                    text = "Mål din omkreds lige under brystet, og indtast dine mål " +
+                            "nedenfor. Klik på play-knappen for en instruktionsvideo.",
                     fontFamily = FontFamily(Font(R.font.inter_regular)),
                     fontSize = 20.sp,
                     lineHeight = 24.sp
@@ -146,30 +206,19 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.lower_measure),
-                    contentDescription = "Nedre omkreds",
-                    modifier = Modifier
-                        .size(70.dp)
-                        .padding(start = 6.dp),
-                    contentScale = ContentScale.Fit
-                )
-
-                Spacer(modifier = Modifier.height(42.dp))
-
                 Button(
-                    onClick = {},
-                    modifier = Modifier.size(26.dp),
+                    onClick = { navController.navigate("infoVideoNR2") },
+                    modifier = Modifier.size(31.dp),
                     shape = CircleShape,
                     contentPadding = PaddingValues(0.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFFFF9800)
                     )
                 ) {
-                    Text(
-                        text = "i",
-                        color = Color.Black,
-                        fontSize = 18.sp
+                    Icon(
+                        imageVector = Icons.Default.PlayArrow,
+                        contentDescription = "Afspil video",
+                        tint = Color.White
                     )
                 }
             }
@@ -182,7 +231,19 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
             onValueChange = { vm.updateLowerMeasure(it) },
             modifier = Modifier
                 .fillMaxWidth()
-                .height(50.dp),
+                .height(50.dp), placeholder = {
+
+                Text(
+
+                    text = "65 - 100",
+
+                    color = Color.Gray,
+
+                    fontSize = 14.sp
+
+                )
+
+            },
             trailingIcon = {
                 Text(
                     text = "CM",
@@ -202,6 +263,6 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
     }
     ContinueBTN1(navController, vm)
     BackBTN({ navController.popBackStack() }, color = Color.Black)
-    Header()
+    Header(navController = navController)
 
 }
