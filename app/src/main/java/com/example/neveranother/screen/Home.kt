@@ -420,7 +420,8 @@ fun Home(navController: NavHostController, vm: NAViewmodel) {
                             .padding(28.dp)
                     ) {
                         Text(
-                            text = "Strikket i ét stykke af vores produktionspartner i Holland med fokus på høj kvalitet og ansvarlig produktion",
+                            text = "Designet i Danmark. \n3D-strikket i Holland med fokus på komfort, " +
+                                    "kvalitet og ansvarlig produktion.",
                             fontFamily = FontFamily(Font(R.font.inter_extrabold)),
                             color = Color.White,
                             fontSize = 26.sp,

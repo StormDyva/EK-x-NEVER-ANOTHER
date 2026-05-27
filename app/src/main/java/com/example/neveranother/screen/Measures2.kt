@@ -5,8 +5,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -34,9 +37,57 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel) {
             .fillMaxSize()
             .background(Color(0xFFF8F5F2))
             .padding(horizontal = 32.dp)
-            .padding(top = 200.dp)
+            .padding(top = 100.dp)
 
     ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 95.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ) {
+
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .size(30.dp)
+                    .background(
+                        color = Color(0xFF000000),
+                        shape = CircleShape
+                    )
+            ) {
+                Text(
+                    text = "1",
+                    color = Color.White,
+                    fontSize = 20.sp
+                )
+            }
+
+            Box(
+                modifier = Modifier
+                    .width(50.dp)
+                    .height(4.dp)
+                    .background(Color(0xFF000000))
+            )
+
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .size(30.dp)
+                    .background(
+                        color = Color(0xFF000000),
+                        shape = CircleShape
+                    )
+            ) {
+                Text(
+                    text = "2",
+                    color = Color.White,
+                    fontSize = 20.sp
+                )
+            }
+        }
+
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -57,7 +108,9 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel) {
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "Mål din brystbredde i en vandret linje over det fyldigste punkt på brystet. Klik på info-knappen for en instruksionsvideo",
+                    text = "Mål din brystbredde i en vandret linje over det fyldigste " +
+                            "punkt på brystet. Klik på play-knappen for en " +
+                            "instruksionsvideo",
                     fontFamily = FontFamily(Font(R.font.inter_regular)),
                     fontSize = 20.sp,
                     lineHeight = 24.sp
@@ -70,17 +123,17 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel) {
 
                 Button(
                     onClick = {navController.navigate("infoVideoNR3")},
-                    modifier = Modifier.size(26.dp),
+                    modifier = Modifier.size(31.dp),
                     shape = CircleShape,
                     contentPadding = PaddingValues(0.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFFFF9800)
                     )
                 ) {
-                    Text(
-                        text = "i",
-                        color = Color.Black,
-                        fontSize = 18.sp
+                    Icon(
+                        imageVector = Icons.Default.PlayArrow,
+                        contentDescription = "Afspil video",
+                        tint = Color.White
                     )
                 }
             }
@@ -126,7 +179,8 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel) {
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "Mål din skålhøjde i en lodret linje, hen over brystets runding. Klik på info-knappen for en instruksionvideo",
+                    text = "Mål din skålhøjde i en lodret linje, hen over brystets " +
+                            "runding. Klik på play-knappen for en instruksionvideo",
                     fontFamily = FontFamily(Font(R.font.inter_regular)),
                     fontSize = 20.sp,
                     lineHeight = 24.sp
@@ -139,17 +193,17 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel) {
 
                 Button(
                     onClick = {navController.navigate("infoVideoNR4")},
-                    modifier = Modifier.size(26.dp),
+                    modifier = Modifier.size(31.dp),
                     shape = CircleShape,
                     contentPadding = PaddingValues(0.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFFFF9800)
                     )
                 ) {
-                    Text(
-                        text = "i",
-                        color = Color.Black,
-                        fontSize = 18.sp
+                    Icon(
+                        imageVector = Icons.Default.PlayArrow,
+                        contentDescription = "Afspil video",
+                        tint = Color.White
                     )
                 }
             }
