@@ -168,14 +168,6 @@ fun OrderInformation(navController: NavHostController, vm: NAViewmodel) {
                     quantity = vm.quantity.value
                 )
 
-                println("Navn: $firstName $lastName")
-                println("Email: $email")
-                println("Street name: $streetName")
-                println("City: $city")
-                println("post nr: $postalCode")
-                println("Telefon: $phoneNumber")
-
-
             },
             modifier = Modifier
                 .fillMaxWidth()

@@ -28,7 +28,6 @@ val supabase = createSupabaseClient(
 }
 
 object SupabaseDatabase {
-
     suspend fun insertCustomer(
         firstName: String,
         lastName: String,
