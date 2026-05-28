@@ -46,6 +46,8 @@ fun ResultsOfMeasure(
     navController: NavHostController,
     vm: NAViewmodel
 ) {
+    var color by remember { mutableStateOf("") }
+
     var selectedIndex by remember { mutableStateOf(0) }
 
     val images = listOf(
@@ -142,8 +144,10 @@ fun ResultsOfMeasure(
                     colorLabels.forEachIndexed { index, label ->
                         Box(
                             modifier = Modifier
-                                .clickable { selectedIndex = index }
-                                .background(
+                                .clickable {
+                                    selectedIndex = index
+                                    vm.selectedColor.value = label}
+                                        .background(
                                     if (selectedIndex == index) Color.DarkGray else Color.Transparent
                                 )
                                 .padding(horizontal = 24.dp, vertical = 8.dp),

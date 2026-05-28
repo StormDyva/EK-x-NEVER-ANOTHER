@@ -1,6 +1,10 @@
 package com.example.neveranother.viewModel
 
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.neveranother.model.SupabaseDatabase
@@ -11,9 +15,9 @@ class NAViewmodel: ViewModel() {
     var lowerMeasure = mutableStateOf("")
     var breastWidth = mutableStateOf("")
     var breastHeight = mutableStateOf("")
+    var selectedColor = mutableStateOf("")
 
-
-    var customerId = mutableStateOf<Int?>(null)
+    var quantity = mutableStateOf(1)
 
     fun saveCustomer(
         firstName: String,
@@ -98,6 +102,31 @@ class NAViewmodel: ViewModel() {
                     number in 10..50
 
         }
+    fun saveProduct(
+        upperCircumference: Int,
+        lowerCircumference: Int,
+        breastWidth: Int,
+        breastHeight: Int,
+        color: String,
+        quantity: Int
+    ) {
+        viewModelScope.launch {
+            try {
+                SupabaseDatabase.insertProductInformation(
+                    upperCircumference = upperCircumference,
+                    lowerCircumference = lowerCircumference,
+                    breastWidth = breastWidth,
+                    breastHeight = breastHeight,
+                    color = color,
+                    quantity = quantity
+                )
+                println("Mål gemt!")
+            } catch (e: Exception) {
+                println("FEJL: ${e.message}")
+                e.printStackTrace()
+            }
+        }
+    }
     }
 
 

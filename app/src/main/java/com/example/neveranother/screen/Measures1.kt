@@ -28,10 +28,16 @@ import com.example.neveranother.viewModel.NAViewmodel
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.Icon
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 
 @Composable
 fun Measures1(navController: NavHostController, vm: NAViewmodel) {
 
+    var upperCircumference by remember { mutableStateOf("") }
+    var lowerCircumference by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -144,8 +150,9 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
         Spacer(modifier = Modifier.height(12.dp))
 
         OutlinedTextField(
-            value = vm.upperMeasure.value,
-            onValueChange = { vm.updateUpperMeasure(it) },
+            value = upperCircumference,
+            onValueChange = {upperCircumference = it
+                            vm.updateUpperMeasure(it)},
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp),
@@ -227,8 +234,9 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
         Spacer(modifier = Modifier.height(12.dp))
 
         OutlinedTextField(
-            value = vm.lowerMeasure.value,
-            onValueChange = { vm.updateLowerMeasure(it) },
+            value = lowerCircumference,
+            onValueChange = {lowerCircumference = it
+                            vm.updateLowerMeasure(it)},
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp), placeholder = {

@@ -11,13 +11,11 @@ import com.example.neveranother.viewModel.NAViewmodel
 import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.postgrest.Postgrest
 import io.github.jan.supabase.postgrest.from
-import kotlinx.coroutines.selects.select
-import kotlinx.serialization.Serializable
 
 
 @Composable
-fun SupabaseScreen(navController: NavHostController, vm: NAViewmodel){
-    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally){
+fun SupabaseScreen(navController: NavHostController, vm: NAViewmodel) {
+    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text("Supabase")
     }
 }
@@ -42,14 +40,38 @@ object SupabaseDatabase {
     ) {
         supabase
             .from("Customer")
-            .insert(Customer(
-                firstName = firstName,
-                lastName = lastName,
-                streetName = streetName,
-                city = city,
-                postalCode = postalCode,
-                email = email,
-                phoneNumber = phoneNumber
-            ))
+            .insert(
+                Customer(
+                    firstName = firstName,
+                    lastName = lastName,
+                    streetName = streetName,
+                    city = city,
+                    postalCode = postalCode,
+                    email = email,
+                    phoneNumber = phoneNumber
+                )
+            )
+    }
+
+    suspend fun insertProductInformation(
+        upperCircumference: Int,
+        lowerCircumference: Int,
+        breastWidth: Int,
+        breastHeight: Int,
+        color: String,
+        quantity: Int
+    ) {
+        supabase
+            .from("Product")
+            .insert(
+                Product(
+                    upperCircumference = upperCircumference,
+                    lowerCircumference = lowerCircumference,
+                    breastWidth = breastWidth,
+                    breastHeight = breastHeight,
+                    color = color,
+                    quantity = quantity
+                )
+            )
     }
 }

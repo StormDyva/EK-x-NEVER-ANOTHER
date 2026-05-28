@@ -13,6 +13,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -31,6 +35,9 @@ import com.example.neveranother.viewModel.NAViewmodel
 
 @Composable
 fun Measures2(navController: NavHostController, vm: NAViewmodel) {
+
+    var breastWidth by remember { mutableStateOf("") }
+    var breastHeight by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -142,8 +149,9 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel) {
         Spacer(modifier = Modifier.height(35.dp))
 
         OutlinedTextField(
-            value = vm.breastWidth.value,
-            onValueChange = { vm.updateBreastWidth(it) },
+            value = breastWidth,
+            onValueChange = {breastWidth = it
+                            vm.updateBreastWidth(it)},
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp),
@@ -212,8 +220,9 @@ fun Measures2(navController: NavHostController, vm: NAViewmodel) {
         Spacer(modifier = Modifier.height(12.dp))
 
         OutlinedTextField(
-            value = vm.breastHeight.value,
-            onValueChange = { vm.updateBreastHeight(it) },
+            value = breastHeight,
+            onValueChange = {breastHeight = it
+                            vm.updateBreastHeight(it)},
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp),

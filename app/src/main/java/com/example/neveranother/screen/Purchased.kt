@@ -80,7 +80,6 @@ fun Purchased(navController: NavHostController, vm: NAViewmodel){
                     modifier = Modifier.size(120.dp)
                 )
             }
-            // skal state ind her som efter 5 sek går videre til en anden skærm eller home osv.
         }
     }
 }

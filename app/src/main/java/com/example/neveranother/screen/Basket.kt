@@ -26,6 +26,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
@@ -37,6 +38,14 @@ import androidx.compose.ui.text.font.FontWeight
 @Composable
 fun Basket(navController: NavHostController, vm: NAViewmodel) {
     val backgroundColor = Color(0xFFF8F5F2)
+
+    var quantity by remember { mutableStateOf(vm.quantity.value) }
+
+    val productCost = 799
+
+    val subTotal = productCost * vm.quantity.value
+
+    val total = subTotal + 49
 
     Column(
         modifier = Modifier
@@ -52,7 +61,6 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
         ) {
             item {
                 Text("Din kurv", fontSize = 28.sp, fontWeight = FontWeight.Bold)
-                Text("1 vare", color = Color.Gray, fontSize = 14.sp)
                 Spacer(modifier = Modifier.height(16.dp))
             }
 
@@ -64,8 +72,15 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
                         .padding(16.dp)
                 ) {
                     Row {
+
                         Image(
-                            painter = painterResource(id = R.drawable.blackbra),
+                            painter = painterResource(
+                                id = when (vm.selectedColor.value) {
+                                    "Hvid" -> R.drawable.whitebrabasket
+                                    "Sort" -> R.drawable.blackbra
+                                    else -> R.drawable.whitebrabasket
+                                }
+                            ),
                             contentDescription = null,
                             contentScale = ContentScale.Crop
                         )
@@ -75,8 +90,7 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
                         Column {
                             Text("Bra no. 167", fontSize = 20.sp, fontWeight = FontWeight.Bold)
                             Text("Farve:  Sort", color = Color.Gray)
-                            Text("Størrelse:", color = Color.Gray)
-                            Spacer(modifier = Modifier.height(8.dp))
+                            Spacer(modifier = Modifier.height(10.dp))
                             Text("Øvre omkreds: ${vm.upperMeasure.value} cm", color = Color.Gray)
                             Text("Nedre omkreds: ${vm.lowerMeasure.value} cm", color = Color.Gray)
                             Text("Brystbredde:${vm.breastWidth.value} cm", color = Color.Gray)
@@ -86,22 +100,35 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
 
                     Spacer(modifier = Modifier.height(12.dp))
 
-                    var amount by remember { mutableIntStateOf(1) }
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         OutlinedButton(
-                            onClick = { if (amount > 1) amount-- },
+                            onClick = {
+                                if (quantity > 1) {
+                                    quantity--
+                                    vm.quantity.value = quantity
+                                }
+                            },
                             modifier = Modifier.size(36.dp),
                             contentPadding = PaddingValues(0.dp)
                         ) { Text("-") }
-                        Text("$amount", modifier = Modifier.padding(horizontal = 16.dp))
+
+                        Text("$quantity", modifier = Modifier.padding(horizontal = 16.dp))
+
                         OutlinedButton(
-                            onClick = { amount++ },
+                            onClick = {
+                                quantity++
+                                vm.quantity.value = quantity
+                            },
                             modifier = Modifier.size(36.dp),
                             contentPadding = PaddingValues(0.dp)
                         ) { Text("+") }
                     }
 
-                    Divider(modifier = Modifier.padding(vertical = 12.dp))
+                    HorizontalDivider(
+                        modifier = Modifier.padding(vertical = 12.dp),
+                        thickness = DividerDefaults.Thickness,
+                        color = DividerDefaults.color
+                    )
 
                     Row(
                         modifier = Modifier.fillMaxWidth(),
@@ -120,18 +147,22 @@ fun Basket(navController: NavHostController, vm: NAViewmodel) {
 
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                     Text("Subtotal", color = Color.Gray)
-                    Text("799 kr", fontFamily = FontFamily(Font(R.font.inter_regular)))
+                    Text("$subTotal kr", fontFamily = FontFamily(Font(R.font.inter_regular)))
                 }
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                     Text("Fragt", color = Color.Gray)
                     Text("49 kr", fontWeight = FontWeight.Bold, color = Color.Red)
                 }
 
-                Divider(modifier = Modifier.padding(vertical = 8.dp))
+                HorizontalDivider(
+                    modifier = Modifier.padding(vertical = 8.dp),
+                    thickness = DividerDefaults.Thickness,
+                    color = DividerDefaults.color
+                )
 
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                     Text("Total", fontWeight = FontWeight.Bold)
-                    Text("848 kr", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                    Text("$total kr", fontWeight = FontWeight.Bold, fontSize = 18.sp)
                 }
             }
         }
