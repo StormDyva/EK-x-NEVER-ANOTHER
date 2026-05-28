@@ -159,16 +159,6 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
 
             placeholder = {
 
-                Text(
-
-                    text = "77 - 113",
-
-                    color = Color.Gray,
-
-                    fontSize = 14.sp
-
-                )
-
             },
             trailingIcon = {
                 Text(
@@ -180,6 +170,15 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
             singleLine = true,
             shape = RoundedCornerShape(8.dp)
         )
+        if (upperCircumference.isNotEmpty() && !vm.isUpperMeasure1Valid.value) {
+            Text(
+                text = "Indtast et tal mellem 77 og 113",
+                color = Color.Red,
+                fontSize = 12.sp,
+                fontFamily = FontFamily(Font(R.font.inter_regular))
+            )
+        }
+
 
         Spacer(modifier = Modifier.height(70.dp))
 
@@ -241,15 +240,6 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
                 .fillMaxWidth()
                 .height(50.dp), placeholder = {
 
-                Text(
-
-                    text = "65 - 100",
-
-                    color = Color.Gray,
-
-                    fontSize = 14.sp
-
-                )
 
             },
             trailingIcon = {
@@ -262,6 +252,15 @@ fun Measures1(navController: NavHostController, vm: NAViewmodel) {
             singleLine = true,
             shape = RoundedCornerShape(8.dp)
         )
+        if (lowerCircumference.isNotEmpty() && !vm.isLowerMeasure1Valid.value) {
+            Text(
+                text = "Indtast et tal mellem 65 og 100",
+                color = Color.Red,
+                fontSize = 12.sp,
+                fontFamily = FontFamily(Font(R.font.inter_regular))
+            )
+        }
+
 
         Spacer(modifier = Modifier.weight(1f))
 

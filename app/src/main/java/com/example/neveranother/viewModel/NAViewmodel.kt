@@ -16,8 +16,11 @@ class NAViewmodel: ViewModel() {
     var breastWidth = mutableStateOf("")
     var breastHeight = mutableStateOf("")
     var selectedColor = mutableStateOf("")
-
     var quantity = mutableStateOf(1)
+
+    var isUpperMeasure1Valid = mutableStateOf(false)
+
+    var isLowerMeasure1Valid = mutableStateOf(false)
 
     fun saveCustomer(
         firstName: String,
@@ -47,61 +50,26 @@ class NAViewmodel: ViewModel() {
         }
     }
 
-        fun updateUpperMeasure(value: String) {
-            upperMeasure.value = value
-        }
+    fun updateUpperMeasure(value: String) {
+        upperMeasure.value = value
+        val number = value.toIntOrNull()
+        isUpperMeasure1Valid.value = number != null && number in 77..113
+    }
 
-        fun updateLowerMeasure(value: String) {
-            lowerMeasure.value = value
-        }
+    fun updateLowerMeasure(value: String) {
+        lowerMeasure.value = value
+        val number = value.toIntOrNull()
+        isLowerMeasure1Valid.value = number != null && number in 65..100
+    }
+    fun updateBreastWidth(value: String) {
+        breastWidth.value = value
+    }
 
-        fun updateBreastWidth(value: String) {
-            breastWidth.value = value
-        }
+    fun updateBreastHeight(value: String) {
+        breastHeight.value = value
+    }
 
-        fun updateBreastHeight(value: String) {
-            breastHeight.value = value
-        }
 
-        fun isUpperMeasureValid(): Boolean {
-
-            val number = upperMeasure.value.toIntOrNull()
-
-            return number != null &&
-
-                    number in 77..113
-
-        }
-
-        fun isLowerMeasureValid(): Boolean {
-
-            val number = lowerMeasure.value.toIntOrNull()
-
-            return number != null &&
-
-                    number in 60..100
-
-        }
-
-        fun isBreastWidthValid(): Boolean {
-
-            val number = breastWidth.value.toIntOrNull()
-
-            return number != null &&
-
-                    number in 10..50
-
-        }
-
-        fun isBreastHeightValid(): Boolean {
-
-            val number = breastHeight.value.toIntOrNull()
-
-            return number != null &&
-
-                    number in 10..50
-
-        }
     fun saveProduct(
         upperCircumference: Int,
         lowerCircumference: Int,

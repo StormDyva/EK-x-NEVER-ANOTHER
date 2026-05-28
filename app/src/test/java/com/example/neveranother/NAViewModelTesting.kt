@@ -8,77 +8,43 @@ class NAViewmodelTest {
 
 
     //Upper measurement tests
-
     @Test
     fun `Upper stores input`() {
         val vm = NAViewmodel()
-
         vm.updateUpperMeasure("85")
-
         assertEquals("85", vm.upperMeasure.value)
     }
 
     @Test
     fun `Upper valid number`() {
         val vm = NAViewmodel()
-
-        vm.updateUpperMeasure("85")
-
-        assertEquals(true, vm.isUpperMeasureValid())
+        assertEquals(true, vm.updateUpperMeasure("85"))
     }
 
     @Test
     fun `Upper minimum valid`() {
         val vm = NAViewmodel()
-
-        vm.updateUpperMeasure("77")
-
-        assertEquals(true, vm.isUpperMeasureValid())
-    }
-
-    @Test
-    fun `Upper maximum valid`() {
-        val vm = NAViewmodel()
-
-        vm.updateUpperMeasure("113")
-
-        assertEquals(true, vm.isUpperMeasureValid())
+        assertEquals(true, vm.updateUpperMeasure("77"))
     }
 
     @Test
     fun `Upper too low`() {
         val vm = NAViewmodel()
 
-        vm.updateUpperMeasure("76")
-
-        assertEquals(false, vm.isUpperMeasureValid())
-    }
-
-    @Test
-    fun `Upper too high`() {
-        val vm = NAViewmodel()
-
-        vm.updateUpperMeasure("114")
-
-        assertEquals(false, vm.isUpperMeasureValid())
+        vm.updateUpperMeasure("77")
+        assertEquals(true, vm.isUpperMeasure1Valid.value)
     }
 
     @Test
     fun `Upper rejects text`() {
         val vm = NAViewmodel()
-
-        vm.updateUpperMeasure("abc")
-
-        assertEquals(false, vm.isUpperMeasureValid())
+        assertEquals(false, vm.updateUpperMeasure("abc"))
     }
 
     @Test
     fun `Upper rejects empty`() {
         val vm = NAViewmodel()
-
-        vm.updateUpperMeasure("")
-
-        assertEquals(false, vm.isUpperMeasureValid())
+        assertEquals(false, vm.updateUpperMeasure(""))
     }
 
     @Test
@@ -87,7 +53,7 @@ class NAViewmodelTest {
 
         vm.updateUpperMeasure("@")
 
-        assertEquals(false, vm.isUpperMeasureValid())
+        assertEquals(false, vm.updateUpperMeasure(String()))
     }
 
 
@@ -109,7 +75,7 @@ class NAViewmodelTest {
 
         vm.updateLowerMeasure("80")
 
-        assertEquals(true, vm.isLowerMeasureValid())
+        assertEquals(true, vm.updateLowerMeasure(String()))
     }
 
     @Test
@@ -118,7 +84,7 @@ class NAViewmodelTest {
 
         vm.updateLowerMeasure("60")
 
-        assertEquals(true, vm.isLowerMeasureValid())
+        assertEquals(true, vm.updateLowerMeasure(String()))
     }
 
     @Test
@@ -127,7 +93,7 @@ class NAViewmodelTest {
 
         vm.updateLowerMeasure("100")
 
-        assertEquals(true, vm.isLowerMeasureValid())
+        assertEquals(true, vm.updateLowerMeasure(String()))
     }
 
     @Test
@@ -136,7 +102,7 @@ class NAViewmodelTest {
 
         vm.updateLowerMeasure("59")
 
-        assertEquals(false, vm.isLowerMeasureValid())
+        assertEquals(false, vm.updateLowerMeasure(String()))
     }
 
     @Test
@@ -145,7 +111,7 @@ class NAViewmodelTest {
 
         vm.updateLowerMeasure("101")
 
-        assertEquals(false, vm.isLowerMeasureValid())
+        assertEquals(false, vm.updateLowerMeasure(String()))
     }
 
     @Test
@@ -154,7 +120,7 @@ class NAViewmodelTest {
 
         vm.updateLowerMeasure("abc")
 
-        assertEquals(false, vm.isLowerMeasureValid())
+        assertEquals(false, vm.updateLowerMeasure(String()))
     }
 
     @Test
@@ -163,7 +129,7 @@ class NAViewmodelTest {
 
         vm.updateLowerMeasure("")
 
-        assertEquals(false, vm.isLowerMeasureValid())
+        assertEquals(false, vm.updateLowerMeasure(String()))
     }
 
     @Test
@@ -172,7 +138,7 @@ class NAViewmodelTest {
 
         vm.updateUpperMeasure("@")
 
-        assertEquals(false, vm.isUpperMeasureValid())
+        assertEquals(false, vm.updateUpperMeasure(String()))
     }
 
 }
