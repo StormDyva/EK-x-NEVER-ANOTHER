@@ -43,7 +43,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavController
 import com.example.neveranother.R
-
+//Loui + Frederik + Storm
 @Composable
 fun Header(navController: NavController) {
     var menuExpanded by remember { mutableStateOf(false) }

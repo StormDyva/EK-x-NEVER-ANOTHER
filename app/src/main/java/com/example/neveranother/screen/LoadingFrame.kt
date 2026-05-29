@@ -33,7 +33,7 @@ import com.example.neveranother.R
 import com.example.neveranother.components.Header
 import com.example.neveranother.viewModel.NAViewmodel
 import kotlinx.coroutines.delay
-
+//Loui
 @Composable
 fun LoadingFrame(
     navController: NavHostController,

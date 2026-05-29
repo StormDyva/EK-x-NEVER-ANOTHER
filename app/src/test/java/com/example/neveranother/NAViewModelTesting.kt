@@ -7,7 +7,7 @@ import org.junit.Test
 class NAViewmodelTest {
 
 
-    //Upper measurement tests
+//Loui + Storm
     @Test
     fun `Upper stores input`() {
         val vm = NAViewmodel()
@@ -58,7 +58,6 @@ class NAViewmodelTest {
 
 
 
-//Lower measurements
 
     @Test
     fun `Lower stores input`() {

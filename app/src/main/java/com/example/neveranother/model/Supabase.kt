@@ -12,7 +12,7 @@ import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.postgrest.Postgrest
 import io.github.jan.supabase.postgrest.from
 
-
+//Frederik
 @Composable
 fun SupabaseScreen(navController: NavHostController, vm: NAViewmodel) {
     Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {

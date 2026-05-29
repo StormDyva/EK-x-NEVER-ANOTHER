@@ -36,7 +36,7 @@ import com.example.neveranother.R
 import com.example.neveranother.components.BackBTN
 import com.example.neveranother.components.Header
 import com.example.neveranother.viewModel.NAViewmodel
-
+//Storm
  @Composable
  fun BookFitting(navController: NavHostController, vm: NAViewmodel) {
      Box(
@@ -115,26 +115,9 @@ import com.example.neveranother.viewModel.NAViewmodel
 
                  Spacer(modifier = Modifier.height(25.dp))
 
-                 val annotatedLinkString = buildAnnotatedString {
-                     append("Send os en besked ")
 
-                     withLink(
-                         LinkAnnotation.Url(
-                             url = "mailto:info@neveranother.com?subject=Book%20en%20fitting",
-                             styles = TextLinkStyles(
-                                 style = SpanStyle(
-                                     textDecoration = TextDecoration.Underline
-                                 )
-                             )
-                         )
-                     ) {
-                         append("her.")
-                     }
-                 }
-
-                 Text(
-                     text = annotatedLinkString,
-                     fontFamily = FontFamily(Font(R.font.inter_medium)), // Sat her, så hele teksten bruger den
+                 Text( text = "Send os en besked på info@neveranother.com",
+                     fontFamily = FontFamily(Font(R.font.inter_medium)),
                      fontSize = 20.sp,
                      lineHeight = 29.sp,
                      color = Color.Black

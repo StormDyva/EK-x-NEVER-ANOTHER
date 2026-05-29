@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.neveranother.viewModel.NAViewmodel
-
+//Simon
 @Composable
 fun PayBTN(navController: NavHostController, vm: NAViewmodel) {
 

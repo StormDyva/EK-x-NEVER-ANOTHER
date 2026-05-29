@@ -47,7 +47,7 @@ import com.example.neveranother.ui.theme.NEVERANOTHERTheme
 import com.example.neveranother.viewModel.NAViewmodel
 import io.github.jan.supabase.postgrest.Postgrest
 import io.github.jan.supabase.postgrest.from
-
+//Loui
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

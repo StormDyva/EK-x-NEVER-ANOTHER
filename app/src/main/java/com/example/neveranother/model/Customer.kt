@@ -3,7 +3,7 @@ package com.example.neveranother.model
 import android.R
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-
+//Frederik
 @Serializable
 data class Customer(
     @SerialName("customer_ID") val customerID: Int? = null,

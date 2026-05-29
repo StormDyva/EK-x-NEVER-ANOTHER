@@ -34,7 +34,7 @@ import com.example.neveranother.R
 import com.example.neveranother.components.BackBTN
 import com.example.neveranother.components.Header
 import com.example.neveranother.viewModel.NAViewmodel
-
+//Simon
 @Composable
 fun Purchased(navController: NavHostController, vm: NAViewmodel){
     val backgroundImage = Image(

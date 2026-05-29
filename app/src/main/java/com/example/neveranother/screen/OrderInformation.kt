@@ -28,7 +28,7 @@ import androidx.navigation.NavHostController
 import com.example.neveranother.components.BackBTN
 import com.example.neveranother.components.Header
 import com.example.neveranother.viewModel.NAViewmodel
-
+//Frederik + Storm
 @Composable
 
 fun OrderInformation(navController: NavHostController, vm: NAViewmodel) {
@@ -167,16 +167,18 @@ fun OrderInformation(navController: NavHostController, vm: NAViewmodel) {
                     color = vm.selectedColor.value,
                     quantity = vm.quantity.value
                 )
-
+                navController.navigate("Purchased-screen")
             },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(60.dp),
             shape = RoundedCornerShape(8.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
-        ) {
+        )
+        {
             Text("Gå til betaling", color = Color.White, fontSize = 16.sp)
         }
+
 
     }
     Header(navController = navController)

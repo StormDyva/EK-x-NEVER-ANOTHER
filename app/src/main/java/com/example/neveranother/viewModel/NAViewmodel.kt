@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.neveranother.model.SupabaseDatabase
 import kotlinx.coroutines.launch
-
+//Loui + Frederik
 class NAViewmodel: ViewModel() {
     var upperMeasure = mutableStateOf("")
     var lowerMeasure = mutableStateOf("")

@@ -34,7 +34,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 
-
+//Frederik
 @Composable
 fun Basket(navController: NavHostController, vm: NAViewmodel) {
     val backgroundColor = Color(0xFFF8F5F2)
